@@ -1,0 +1,17 @@
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.Repository\bin\Debug\Project.Repository.dll
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.Repository\bin\Debug\Project.Repository.pdb
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.Repository\bin\Debug\EntityFramework.dll
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.Repository\bin\Debug\Project.Common.dll
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.Repository\bin\Debug\Project.DAL.dll
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.Repository\bin\Debug\Project.Repository.Common.dll
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.Repository\bin\Debug\Project.Model.dll
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.Repository\bin\Debug\Project.Model.Common.dll
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.Repository\bin\Debug\Project.Common.pdb
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.Repository\bin\Debug\Project.DAL.pdb
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.Repository\bin\Debug\Project.Repository.Common.pdb
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.Repository\bin\Debug\EntityFramework.xml
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.Repository\bin\Debug\Project.Model.pdb
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.Repository\bin\Debug\Project.Model.Common.pdb
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.Repository\obj\Debug\Project.Repository.csprojResolveAssemblyReference.cache
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.Repository\obj\Debug\Project.Repository.dll
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.Repository\obj\Debug\Project.Repository.pdb

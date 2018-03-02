@@ -1,0 +1,17 @@
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.DAL\bin\Debug\Project.DAL.dll.config
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.DAL\bin\Debug\Project.DAL.dll
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.DAL\bin\Debug\Project.DAL.pdb
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.DAL\bin\Debug\EntityFramework.dll
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.DAL\bin\Debug\Project.Model.dll
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.DAL\bin\Debug\Project.Model.Common.dll
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.DAL\bin\Debug\Project.Model.pdb
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.DAL\bin\Debug\EntityFramework.xml
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.DAL\bin\Debug\Project.Model.Common.pdb
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.DAL\obj\Debug\Project.DAL.csprojResolveAssemblyReference.cache
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.DAL\obj\Debug\Project.DAL.dll
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.DAL\obj\Debug\Project.DAL.pdb
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.DAL\obj\Debug\Project.DAL.Migrations.InitialCreate.resources
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.DAL\obj\Debug\Project.DAL.csproj.GenerateResource.Cache
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.DAL\obj\Debug\Project.DAL.Migrations.FluentApi.resources

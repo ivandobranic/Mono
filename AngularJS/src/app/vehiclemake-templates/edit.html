@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="../../scripts/angular.js"></script>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h2>Edit</h2>
+    <div>
+
+        <table ng-view style="font-size:large">
+            <tbody>
+                <tr>
+                    <td>
+                        <b>Name:</b><input type="text" value={{makeCtrl.vehiclemakebyid.Name}}
+                                           ng-model="makeCtrl.vehiclemakebyid.Name">
+                    </td>
+                </tr>
+               
+                <tr>
+                    <td> <b>Abrv:</b><input type="text" value ={{makeCtrl.vehiclemakebyid.Abrv}}
+                     ng-model="makeCtrl.vehiclemakebyid.Abrv"></td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" value="Save" ng-click="makeCtrl.updateMake()" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</body>
+</html>

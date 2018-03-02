@@ -1,0 +1,9 @@
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.Service.Common\bin\Debug\Project.Service.Common.dll
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.Service.Common\bin\Debug\Project.Service.Common.pdb
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.Service.Common\bin\Debug\Project.Model.dll
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.Service.Common\bin\Debug\Project.Model.Common.dll
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.Service.Common\bin\Debug\Project.Model.pdb
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.Service.Common\bin\Debug\Project.Model.Common.pdb
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.Service.Common\obj\Debug\Project.Service.Common.csprojResolveAssemblyReference.cache
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.Service.Common\obj\Debug\Project.Service.Common.dll
+C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.Service.Common\obj\Debug\Project.Service.Common.pdb

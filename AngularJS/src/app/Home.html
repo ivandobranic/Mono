@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html ng-app="vehicleModule">
+<head>
+    <script src="../scripts/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.0/angular-ui-router.js"></script>
+    <script src="../scripts/dirPagination.js"></script>
+    <script src="app-module.js"></script>
+    <script src="vehiclemake/vehiclemake-controller.js"></script>
+    <script src="vehiclemake/shared/vehiclemake-service.js"></script>
+    <link href="../styles/bootstrap.css" rel="stylesheet" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Angular Application</title>
+</head >
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a ui-sref="Home">Home</a>
+                    </li>
+                    <li>
+                        <a ui-sref="Home.Vehiclemake">VehicleMake</a>
+
+                    </li>
+                    <li>
+                        <a ui-sref="VehicleModel">VehicleModel</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+       <br/>
+        <br/>
+       <div ui-view ="">
+
+       </div>
+        <hr />
+        <footer>
+            <p></p>
+        </footer>
+    </div>
+
+</body>
+</html>
