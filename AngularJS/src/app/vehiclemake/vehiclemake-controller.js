@@ -38,9 +38,10 @@ app.controller("vehiclemakeController", function ($http, $stateParams, $state, $
     vm.VehicleMake = {
         Name: "",
         Abrv: ""
-    };
+    }
     vm.createMake = function () {
-    return makeService.create(vm.VehicleMake)
+       
+      makeService.create(vm.VehicleMake)
     };
     // put
     vm.updateMake = function () {

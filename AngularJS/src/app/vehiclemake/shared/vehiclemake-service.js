@@ -27,13 +27,9 @@ app.service("makeService", function ($http, $stateParams) {
     }
     //post
     this.create = function (Vehicle) {
-        return $http({
-            method: "post",
-            url: "http://localhost:58986/api/VehicleMakeAPI",
-            data: Vehicle
-        });
-
-    }
+        return $http.post('http://localhost:58986/api/VehicleMakeAPI', Vehicle)
+        
+    };
     //put
     this.update = function (Vehicle) {
         return $http({
