@@ -30,7 +30,7 @@ app.service("makeService", function ($http, $stateParams) {
         return $http({
             method: "post",
             url: "http://localhost:58986/api/VehicleMakeAPI",
-            params: Vehicle
+            data: Vehicle
         });
 
     }

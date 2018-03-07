@@ -4,6 +4,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Description;
 using AutoMapper;
 using MVC.Models;
 using Project.Model;
@@ -11,7 +12,7 @@ using Project.Service.Common;
 
 namespace MVC.Controllers
 {
-  
+   
     public class VehicleMakeAPIController : ApiController
     {
         IVehicleMakeService vehiclemakeService;
@@ -20,10 +21,10 @@ namespace MVC.Controllers
         {
             this.vehiclemakeService = _vehiclemakeService;
         }
-        // GET: api/VehicleMakeAPI
+      
         [HttpGet]
-     
-        public async Task<IHttpActionResult> Get(int? pageNumber = null, string sortOrder = null, string search = null)
+        [Route("api/VehicleMakeAPI/{pageNumber?}/{sortOrder?}/{search?}")]
+        public async Task<IHttpActionResult> Get(int? pageNumber = null, string sortOrder = null, string search = null )
         {
             int totalRowCount = vehiclemakeService.GetVehicleMakeCount(search);
 
@@ -40,8 +41,11 @@ namespace MVC.Controllers
 
         }
 
-        // GET: api/VehicleMakeAPI/5
+
+       
+        
         [HttpGet]
+        [Route("api/VehicleMakeAPI/{id?}")]
         public async Task<IHttpActionResult> Get(int id)
         {
             try
@@ -63,7 +67,8 @@ namespace MVC.Controllers
         }
 
         [HttpPost]
-        public async Task<IHttpActionResult> Post([FromUri] VehicleMake model)
+        [Route("api/VehicleMakeAPI/{model}")]
+        public async Task<IHttpActionResult> Post(VehicleMake model)
         {
             try
             {
@@ -81,8 +86,10 @@ namespace MVC.Controllers
         }
 
         // PUT: api/VehicleMakeAPI/5
-        
-        public async Task<IHttpActionResult> Put([FromBody] VehicleMake model)
+        [HttpPut]
+        [Route("api/VehicleMakeAPI/{model}")]
+        [ResponseType(typeof(VehicleMake))]
+        public async Task<IHttpActionResult> Put(VehicleMake model)
         {
             try
             {
@@ -106,7 +113,8 @@ namespace MVC.Controllers
 
         }
 
-
+        [HttpDelete]
+        [Route("api/VehicleMakeAPI/{model}")]
         public async Task<IHttpActionResult> Delete([FromBody]VehicleMake model)
         {
             try

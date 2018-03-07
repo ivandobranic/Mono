@@ -2,7 +2,8 @@
 /// <reference path="../app-module.js" />
 
 
-app.controller("vehiclemakeController", function ($http, $stateParams, $log, makeService) {
+
+app.controller("vehiclemakeController", function ($http, $stateParams, $state, $log, makeService) {
     var vm = this;
 
     //get
@@ -39,11 +40,11 @@ app.controller("vehiclemakeController", function ($http, $stateParams, $log, mak
         Abrv: ""
     };
     vm.createMake = function () {
-       return makeService.create(vm.VehicleMake)
+    return makeService.create(vm.VehicleMake)
     };
     // put
     vm.updateMake = function () {
-        return makeService.update(vm.vehiclemakebyid);
+      return makeService.update(vm.vehiclemakebyid);
     };
     //delete
     vm.deleteMake = function () {

@@ -95,3 +95,102 @@ C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Projec
 C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.WebAPI, MVC.Tests\obj\Debug\Project.WebAPI, MVC.Tests.csproj.Project.WebAPI, MVC.Tests.dll.config
 C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.WebAPI, MVC.Tests\obj\Debug\Project.WebAPI, MVC.Tests.dll
 C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.WebAPI, MVC.Tests\obj\Debug\Project.WebAPI, MVC.Tests.pdb
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\xunit.abstractions.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\ApplicationInsights.config
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\roslyn\csc.exe
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\roslyn\System.Collections.Immutable.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\roslyn\System.Reflection.Metadata.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\roslyn\vbc.exe
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\roslyn\VBCSCompiler.exe
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\roslyn\VBCSCompiler.exe.config
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\xunit.runner.visualstudio.testadapter.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\xunit.runner.reporters.net452.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\xunit.runner.utility.net452.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Project.WebAPI, MVC.Tests.dll.config
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Project.WebAPI, MVC.Tests.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Project.WebAPI, MVC.Tests.pdb
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Castle.Core.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\FluentAssertions.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Moq.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\MVC.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Newtonsoft.Json.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Project.Model.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Project.Repository.Common.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Project.Service.Common.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\System.ValueTuple.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\System.Web.Http.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\System.Web.Http.WebHost.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\xunit.assert.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\xunit.core.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\xunit.execution.desktop.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\WebActivatorEx.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\System.Web.Optimization.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\System.Web.Mvc.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\AutoMapper.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\PagedList.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Ninject.Web.Common.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Ninject.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\System.Web.Http.Cors.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Ninject.Web.Common.WebHost.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Project.Repository.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Project.Service.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Project.Common.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Project.Model.Common.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\WebGrease.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\System.Web.Razor.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\System.Web.WebPages.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\System.Web.Cors.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Project.DAL.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\EntityFramework.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Antlr3.Runtime.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\MVC.pdb
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Project.Model.pdb
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Project.Repository.Common.pdb
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Project.Service.Common.pdb
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Castle.Core.xml
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\FluentAssertions.pdb
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\FluentAssertions.xml
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Moq.pdb
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Moq.xml
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Newtonsoft.Json.xml
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\System.ValueTuple.xml
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\System.Web.Http.xml
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\System.Web.Http.WebHost.xml
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\xunit.assert.xml
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\xunit.core.xml
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\xunit.execution.desktop.xml
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\System.Web.Optimization.xml
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\System.Web.Mvc.xml
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\AutoMapper.xml
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\PagedList.xml
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Ninject.Web.Common.xml
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Ninject.xml
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\System.Web.Http.Cors.xml
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Ninject.Web.Common.WebHost.xml
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Project.Repository.pdb
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Project.Service.pdb
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Project.Common.pdb
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Project.Model.Common.pdb
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\System.Web.Razor.xml
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\System.Web.WebPages.xml
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Project.DAL.pdb
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\EntityFramework.xml
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Antlr3.Runtime.pdb
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\obj\Debug\Project.WebAPI, MVC.Tests.csprojResolveAssemblyReference.cache
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\obj\Debug\Project.WebAPI, MVC.Tests.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\obj\Debug\Project.WebAPI, MVC.Tests.pdb

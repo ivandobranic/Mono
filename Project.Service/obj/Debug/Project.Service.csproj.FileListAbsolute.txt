@@ -18,3 +18,23 @@ C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Projec
 C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.Service\obj\Debug\Project.Service.csprojResolveAssemblyReference.cache
 C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.Service\obj\Debug\Project.Service.dll
 C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.Service\obj\Debug\Project.Service.pdb
+C:\Users\ivand\Source\Repos\MonoProject\Project.Service\bin\Debug\Project.Service.dll.config
+C:\Users\ivand\Source\Repos\MonoProject\Project.Service\bin\Debug\Project.Service.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.Service\bin\Debug\Project.Service.pdb
+C:\Users\ivand\Source\Repos\MonoProject\Project.Service\bin\Debug\EntityFramework.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.Service\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.Service\bin\Debug\Project.Common.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.Service\bin\Debug\Project.Model.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.Service\bin\Debug\Project.Repository.Common.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.Service\bin\Debug\Project.Service.Common.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.Service\bin\Debug\Project.Model.Common.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.Service\bin\Debug\Project.Common.pdb
+C:\Users\ivand\Source\Repos\MonoProject\Project.Service\bin\Debug\Project.Model.pdb
+C:\Users\ivand\Source\Repos\MonoProject\Project.Service\bin\Debug\Project.Repository.Common.pdb
+C:\Users\ivand\Source\Repos\MonoProject\Project.Service\bin\Debug\Project.Service.Common.pdb
+C:\Users\ivand\Source\Repos\MonoProject\Project.Service\bin\Debug\EntityFramework.xml
+C:\Users\ivand\Source\Repos\MonoProject\Project.Service\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ivand\Source\Repos\MonoProject\Project.Service\bin\Debug\Project.Model.Common.pdb
+C:\Users\ivand\Source\Repos\MonoProject\Project.Service\obj\Debug\Project.Service.csprojResolveAssemblyReference.cache
+C:\Users\ivand\Source\Repos\MonoProject\Project.Service\obj\Debug\Project.Service.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.Service\obj\Debug\Project.Service.pdb

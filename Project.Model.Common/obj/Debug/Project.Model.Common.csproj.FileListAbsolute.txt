@@ -2,3 +2,7 @@ C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Projec
 C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.Model.Common\bin\Debug\Project.Model.Common.pdb
 C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.Model.Common\obj\Debug\Project.Model.Common.dll
 C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.Model.Common\obj\Debug\Project.Model.Common.pdb
+C:\Users\ivand\Source\Repos\MonoProject\Project.Model.Common\bin\Debug\Project.Model.Common.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.Model.Common\bin\Debug\Project.Model.Common.pdb
+C:\Users\ivand\Source\Repos\MonoProject\Project.Model.Common\obj\Debug\Project.Model.Common.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.Model.Common\obj\Debug\Project.Model.Common.pdb
