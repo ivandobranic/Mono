@@ -11,7 +11,7 @@ namespace Project.Common.Caching
     public class Caching : ICaching
     {
         
-        const double CacheDuration = 360.0;
+       const double CacheDuration = 20.0;
        public object GetCacheItem(string rawKey, string[] MasterCacheKeyArray)
         {
             return HttpRuntime.Cache[GetCacheKey(rawKey, MasterCacheKeyArray)];

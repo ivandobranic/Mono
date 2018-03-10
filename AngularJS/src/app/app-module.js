@@ -1,7 +1,7 @@
 ﻿/// <reference path="../scripts/angular.js" />
 
 
-var app = angular.module("vehicleModule", ["ui.router", 'angularUtils.directives.dirPagination'])
+var app = angular.module("vehicleModule", ["ui.router", 'angularUtils.directives.dirPagination','ngMessages'])
                 .config(function ($stateProvider, $urlRouterProvider, $urlMatcherFactoryProvider) {
                     $urlRouterProvider.otherwise("");
                     $urlMatcherFactoryProvider.caseInsensitive(true);
@@ -54,10 +54,13 @@ var app = angular.module("vehicleModule", ["ui.router", 'angularUtils.directives
 
                     })
                      .state("Home.Sort", {
-                         url: "/filter?sortOrder",
+                         url: "/filter?",
                          templateUrl: "vehiclemake-templates/vehiclemake-list.html",
                          controller: "vehiclemakeController",
-                         controllerAs: "makeCtrl"
+                         controllerAs: "makeCtrl",
+                         params: {
+                             sortOrder: null
+                         }
 
                      })
                     

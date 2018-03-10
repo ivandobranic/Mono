@@ -120,6 +120,7 @@ C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Flue
 C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Moq.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\MVC.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Newtonsoft.Json.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Project.Common.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Project.Model.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Project.Repository.Common.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Project.Service.Common.dll
@@ -143,7 +144,6 @@ C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Ninj
 C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Project.Repository.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Project.Service.dll
-C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Project.Common.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Project.Model.Common.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\WebGrease.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\System.Web.Razor.dll
@@ -155,6 +155,7 @@ C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Enti
 C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Antlr3.Runtime.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\MVC.pdb
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Project.Common.pdb
 C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Project.Model.pdb
 C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Project.Repository.Common.pdb
 C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Project.Service.Common.pdb
@@ -182,7 +183,6 @@ C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Syst
 C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Ninject.Web.Common.WebHost.xml
 C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Project.Repository.pdb
 C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Project.Service.pdb
-C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Project.Common.pdb
 C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Project.Model.Common.pdb
 C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\System.Web.Razor.xml
 C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\System.Web.WebPages.Razor.xml

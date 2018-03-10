@@ -113,6 +113,10 @@
       <Project>{544629B2-6239-4B38-9C89-C79B2A7A38B9}</Project>
       <Name>MVC</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Project.Common\Project.Common.csproj">
+      <Project>{5CAA7342-AA8F-4A63-8D06-39FEA08E4AB0}</Project>
+      <Name>Project.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Project.Model\Project.Model.csproj">
       <Project>{4DB9B415-3B90-4296-956A-5BCA57B3AF2C}</Project>
       <Name>Project.Model</Name>

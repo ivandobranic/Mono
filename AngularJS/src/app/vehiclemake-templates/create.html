@@ -3,14 +3,38 @@
 <head>
     <title></title>
     <script src="../../scripts/angular.js"></script>
-	<meta charset="utf-8" />
+    
+    <meta charset="utf-8" />
 </head>
 <body>
-        <div>
-            Name:
-            <input type="text" ng-model="makeCtrl.VehicleMake.Name">
-            Abrv: <input type="text" ng-model="makeCtrl.VehicleMake.Abrv" />
-            <input type="button" value="Save" ng-click="makeCtrl.createMake()"/>
-        </div>
+    <h2>Create</h2>
+    <div>
+        <form name="CreateForm" ng-submit="makeCtrl.createMake()">
+            <div class="form-group">
+                <div >
+                    <label><b>Name:</b></label>
+                    <input type="text" name="name" ng-model="makeCtrl.VehicleMake.Name"
+                           minlength="1" required>
+                    <div ng-messages="CreateForm.name.$error"
+                         ng-if="CreateForm.name.$dirty">
+                        <div ng-message="required">This field is required</div>
+                    </div>
+                </div>
+                <div>
+                    <label><b>Abrv:</b></label>
+                    <input type="text" name="abrv" ng-model="makeCtrl.VehicleMake.Abrv"
+                           minlength="1" required />
+                    <div ng-messages="CreateForm.abrv.$error"
+                         ng-if="CreateForm.name.$dirty">
+                        <div ng-message="required">This field is required</div>
+                    </div>
+                </div>
+                <div>
+                    <input type="submit" value="Save" />
+                </div>
+            </div>
+        </form>
+    </div>
+
 </body>
 </html>

@@ -27,15 +27,18 @@ app.service("makeService", function ($http, $stateParams) {
     }
     //post
     this.create = function (Vehicle) {
-        return $http.post('http://localhost:58986/api/VehicleMakeAPI', Vehicle)
-        
+        return $http({
+            url: 'http://localhost:58986/api/VehicleMakeAPI',
+            data: Vehicle ,
+            method: "POST",
+        });
     };
     //put
     this.update = function (Vehicle) {
         return $http({
-            method: "put",
-            url: "http://localhost:58986/api/VehicleMakeAPI",
-            data: Vehicle
+            method: "PUT",
+            url: 'http://localhost:58986/api/VehicleMakeAPI',
+            data: Vehicle,
         });
 
     }
@@ -43,9 +46,12 @@ app.service("makeService", function ($http, $stateParams) {
     //delete
     this.delete = function (Vehicle) {
         return $http({
-            method: "delete",
-            url: "http://localhost:58986/api/VehicleMakeAPI",
-            data: Vehicle
+            method: "DELETE",
+            url: 'http://localhost:58986/api/VehicleMakeAPI',
+            data: Vehicle,
+            headers: {
+                'Content-Type': 'application/json'
+            }
         })
 
     }

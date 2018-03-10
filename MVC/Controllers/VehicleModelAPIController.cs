@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using AutoMapper;
 using MVC.Models;
+using Project.Common.Logging;
 using Project.Model;
 using Project.Service.Common;
 
@@ -15,19 +16,28 @@ namespace MVC.Controllers
     public class VehicleModelAPIController : ApiController
     {
         IVehicleModelService vehiclemodelService;
+        IErrorLogger errorlogger;
 
-        public VehicleModelAPIController(IVehicleModelService _vehiclemodelService)
+        public VehicleModelAPIController(IVehicleModelService _vehiclemodelService, IErrorLogger _errorlogger)
         {
             this.vehiclemodelService = _vehiclemodelService;
+            this.errorlogger = _errorlogger;
         }
        
         [HttpGet]
         public async Task<IHttpActionResult> Get(int? pageNumber = null, string sortOrder = null, string search = null, int? pageSize = null)
         {
-            int totalRowCount = vehiclemodelService.GetVehicleModelCount(search);
-            List<VehicleModel> pagedList = await vehiclemodelService.PagedList(sortOrder, search, pageNumber ?? 1, pageSize ?? 3);
-          
-            return Ok(pagedList);
+            try
+            {
+                int totalRowCount = vehiclemodelService.GetVehicleModelCount(search);
+                List<VehicleModel> pagedList = await vehiclemodelService.PagedList(sortOrder, search, pageNumber ?? 1, pageSize ?? 3);
+                return Ok(pagedList);
+            }
+            catch (Exception ex)
+            {
+                errorlogger.LogError(ex);
+                return BadRequest(ex.Message);
+            }
 
         }
         

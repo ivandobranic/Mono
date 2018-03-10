@@ -8,29 +8,33 @@
 <body>
     <h2>Edit</h2>
     <div>
-
-        <table ng-view style="font-size:large">
-            <tbody>
-                <tr>
-                    <td>
-                        <b>Name:</b><input type="text" value={{makeCtrl.vehiclemakebyid.Name}}
-                                           ng-model="makeCtrl.vehiclemakebyid.Name">
-                    </td>
-                </tr>
-               
-                <tr>
-                    <td> <b>Abrv:</b><input type="text" value ={{makeCtrl.vehiclemakebyid.Abrv}}
-                     ng-model="makeCtrl.vehiclemakebyid.Abrv"></td>
-
-                </tr>
-                <tr>
-                    <td>
-                        <input type="button" value="Save" ng-click="makeCtrl.updateMake()" />
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
+        <form name="EditForm" ng-submit="makeCtrl.updateMake()">
+            <div class="form-group">
+                <div>
+                    <label><b>Name:</b></label>
+                    <input type="text" value={{makeCtrl.vehiclemakebyid.Name}}
+                              ng-model="makeCtrl.vehiclemakebyid.Name"
+                           minlength="1" required>
+                    <div ng-messages="EditForm.name.$error"
+                         ng-if="EditForm.name.$dirty">
+                        <div ng-message="required">This field is required</div>
+                    </div>
+                </div>
+                <div>
+                    <label><b>Abrv:</b></label>
+                    <input type="text" value={{makeCtrl.vehiclemakebyid.Abrv}}
+                                 ng-required="true"  ng-model="makeCtrl.vehiclemakebyid.Abrv"
+                           minlength="1" required />
+                    <div ng-messages="EditForm.abrv.$error"
+                         ng-if="EditForm.name.$dirty">
+                        <div ng-message="required">This field is required</div>
+                    </div>
+                </div>
+                <div>
+                    <input type="submit" value="Save" />
+                </div>
+            </div>
+        </form>
     </div>
 
 </body>
