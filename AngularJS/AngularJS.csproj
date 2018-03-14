@@ -116,6 +116,13 @@
     <Content Include="src\app\vehiclemake-templates\vehiclemake-list.html" />
     <Content Include="src\app\vehiclemake\shared\vehiclemake-service.js" />
     <Content Include="src\app\vehiclemake\vehiclemake-controller.js" />
+    <Content Include="src\app\vehiclemodel-templates\create.html" />
+    <Content Include="src\app\vehiclemodel-templates\delete.html" />
+    <Content Include="src\app\vehiclemodel-templates\details.html" />
+    <Content Include="src\app\vehiclemodel-templates\edit.html" />
+    <Content Include="src\app\vehiclemodel-templates\vehiclemodel-list.html" />
+    <Content Include="src\app\vehiclemodel\shared\vehiclemodel-service.js" />
+    <Content Include="src\app\vehiclemodel\vehiclemodel-controller.js" />
     <Content Include="src\scripts\angular.js" />
     <Content Include="src\scripts\dirPagination.js" />
     <Content Include="src\styles\bootstrap.css" />

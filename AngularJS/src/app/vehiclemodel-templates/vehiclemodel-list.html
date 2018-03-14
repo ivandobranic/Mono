@@ -1,0 +1,47 @@
+﻿
+<div>
+    <div>
+        <div>
+            <a ui-sref="Home.CreateNewModel">Create New</a>
+        </div>
+
+    </div>
+    <br />
+    <div>
+        <input type="text" ng-model="modelCtrl.filter">
+        <button ng-click="modelCtrl.search()">Search</button>
+
+    </div>
+    <div>
+        <button ng-click="modelCtrl.sort()">Sort</button>
+
+    </div>
+    <table ng-view class="table-striped col-xs-10" style="font-size:large">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Abrv</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr dir-paginate="vehicle in modelCtrl.vehicleModelData|itemsPerPage:modelCtrl.pageSize" total-items="modelCtrl.totalCount">
+                <td>{{vehicle.Name}}</td>
+                <td>{{vehicle.Abrv}}</td>
+                <td class="col-md-1"><a ui-sref="Home.EditModel({Id:vehicle.Id})">Edit</a> </td>
+                <td class="col-md-1"> <a ui-sref="Home.DetailsModel({Id:vehicle.Id})">Details</a></td>
+                <td class="col-md-1"> <a ui-sref="Home.DeleteModel({Id:vehicle.Id})">Delete</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <dir-pagination-controls max-size="5"
+                             direction-links="true"
+                             boundary-links="true"
+                             on-page-change="modelCtrl.getPaged(newPageNumber)">
+
+    </dir-pagination-controls>
+    <form></form>
+    <div ui-view="">
+
+    </div>
+</div>
+

@@ -15,7 +15,7 @@ namespace Project.Service.Common
         Task<VehicleModel> Create(VehicleModel vehicleModel);
         Task<int> Update(VehicleModel vehicleModel);
         Task<int> Delete(VehicleModel vehicleModel);
-        int GetVehicleModelCount(string search);
+        Task<int> GetVehicleModelCount(string search);
         Task<IEnumerable<VehicleModel>> Sorting(string sortOrder);
         Task<IEnumerable<VehicleModel>> Filtering(string search);
         Task<List<VehicleModel>> PagedList(string sortOrder, string search, int pageNumber, int pageSize);

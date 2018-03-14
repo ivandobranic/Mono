@@ -43,16 +43,16 @@ namespace Project.Service
            return await modelRepository.DeleteAsync(vehicleModel);
         }
 
-        public int GetVehicleModelCount(string search)
+        public async Task<int> GetVehicleModelCount(string search)
         {
-            int rowCount = 0;
+            
             if (search != null)
             {
-                return rowCount = modelRepository.Get().Where(x => x.Name.ToLower() == search.ToLower()).Count();
+                return await modelRepository.Get().Where(x => x.Name == search).CountAsync();
             }
             else
             {
-                return rowCount = modelRepository.Get().Count();
+                return await modelRepository.Get().CountAsync();
             }
 
         }

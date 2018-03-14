@@ -1,0 +1,24 @@
+﻿
+<h2>Delete</h2>
+<div>
+
+    <table ng-view style="font-size:large">
+        <tbody>
+            <tr>
+                <td> <b>ID:</b> {{modelCtrl.vehicleModelById.Id}}</td>
+            </tr>
+            <tr>
+                <td> <b>Name:</b>{{modelCtrl.vehicleModelById.Name}}</td>
+            </tr>
+            <tr>
+                <td> <b>Abrv:</b> {{modelCtrl.vehicleModelById.Abrv}}</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" value="Delete" ng-click="modelCtrl.deleteModel()" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
+</div>

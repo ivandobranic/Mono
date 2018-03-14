@@ -1,15 +1,4 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-    <script src="../../scripts/angular.js"></script>
-    <script src="../../scripts/dirPagination.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-messages/1.6.9/angular-messages.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.0/angular-ui-router.js"></script>
-    <meta charset="utf-8" />
-</head>
-<body>
-
+﻿
     <div>
         <div>
             <div>
@@ -19,10 +8,9 @@
         </div>
         <br/>
         <div>
-                <input type="text" ng-model="filter">
-                <a ui-sref="Home.Filter({search:filter})">
-                    <button>Search</button>
-                </a>
+                <input type="text" ng-model="makeCtrl.filter">
+               <button ng-click="makeCtrl.search()">Search</button>
+               
         </div>
         <div>
             <button ng-click="makeCtrl.sort()">Sort</button>
@@ -36,7 +24,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr dir-paginate="vehicle in makeCtrl.vehiclemakedata|itemsPerPage:makeCtrl.pageSize" total-items="makeCtrl.totalcount">
+                <tr dir-paginate="vehicle in makeCtrl.vehicleMakeData|itemsPerPage:makeCtrl.pageSize" total-items="makeCtrl.totalCount">
                     <td>{{vehicle.Name}}</td>
                     <td>{{vehicle.Abrv}}</td>
                     <td class="col-md-1"><a ui-sref="Home.Edit({Id:vehicle.Id})">Edit</a> </td>
@@ -48,7 +36,7 @@
         <dir-pagination-controls max-size="5"
                                  direction-links="true"
                                  boundary-links="true"
-                                 on-page-change="makeCtrl.GetPaged(newPageNumber)">
+                                 on-page-change="makeCtrl.getPaged(newPageNumber)">
                               
         </dir-pagination-controls>
         <form>
@@ -58,6 +46,3 @@
 
       </div>
     </div>
-
-</body>
-</html>

@@ -1,0 +1,39 @@
+﻿
+<h2>Create</h2>
+<div>
+    <form name="CreateForm" ng-submit="modelCtrl.createModel()">
+        <div class="form-group">
+            <div>
+                <label><b>MakeId:</b></label>
+                <select type="text" name="makeid" ng-model="modelCtrl.vehicleModel.MakeId"
+                   data-ng-options="x.Id as x.Name
+                       for x in makeCtrl.vehicleMakeData "  required>
+                </select>
+               
+            </div>
+            <div>
+                <label><b>Name:</b></label>
+                <input type="text" name="name" ng-model="modelCtrl.vehicleModel.Name"
+                       minlength="1" required>
+                <div ng-messages="CreateForm.name.$error"
+                     ng-if="CreateForm.name.$dirty">
+                    <div ng-message="required">This field is required</div>
+                </div>
+            </div>
+            <div>
+                <label><b>Abrv:</b></label>
+                <input type="text" name="abrv" ng-model="modelCtrl.vehicleModel.Abrv"
+                       minlength="1" required />
+                <div ng-messages="CreateForm.abrv.$error"
+                     ng-if="CreateForm.name.$dirty">
+                    <div ng-message="required">This field is required</div>
+                </div>
+            </div>
+            <div>
+                <input type="submit" value="Save" />
+            </div>
+        </div>
+    </form>
+</div>
+
+

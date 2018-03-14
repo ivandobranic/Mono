@@ -1,14 +1,13 @@
 ﻿/// <reference path="../../../scripts/angular.js" />
 /// <reference path="../../app-module.js" />
 
+app.constant("vehicleModelWebApiUrl", "http://localhost:58986/api/VehicleModelAPI")
+app.service("modelService", function ($http, $stateParams, vehicleModelWebApiUrl) {
 
-app.constant("vehicleMakeWebApiUrl", "http://localhost:58986/api/VehicleMakeAPI")
-app.service("makeService", function ($http, $stateParams, vehicleMakeWebApiUrl) {
-   
     //get
     this.getPagedList = function (newPageNumber, sorting, filter) {
         return $http({
-            url: vehicleMakeWebApiUrl,
+            url: vehicleModelWebApiUrl,
             method: "get",
             params: {
                 pageNumber: newPageNumber, sortOrder: sorting,
@@ -21,7 +20,7 @@ app.service("makeService", function ($http, $stateParams, vehicleMakeWebApiUrl) 
     //getById
     this.getById = function () {
         return $http({
-            url: vehicleMakeWebApiUrl,
+            url: vehicleModelWebApiUrl,
             params: { Id: $stateParams.Id },
             method: "get"
         });
@@ -29,8 +28,8 @@ app.service("makeService", function ($http, $stateParams, vehicleMakeWebApiUrl) 
     //post
     this.create = function (Vehicle) {
         return $http({
-            url: vehicleMakeWebApiUrl,
-            data: Vehicle ,
+            url: vehicleModelWebApiUrl,
+            data: Vehicle,
             method: "post",
         });
     };
@@ -38,7 +37,7 @@ app.service("makeService", function ($http, $stateParams, vehicleMakeWebApiUrl) 
     this.update = function (Vehicle) {
         return $http({
             method: "put",
-            url: vehicleMakeWebApiUrl,
+            url: vehicleModelWebApiUrl,
             data: Vehicle,
         });
 
@@ -48,7 +47,7 @@ app.service("makeService", function ($http, $stateParams, vehicleMakeWebApiUrl) 
     this.delete = function (Vehicle) {
         return $http({
             method: "delete",
-            url: vehicleMakeWebApiUrl,
+            url: vehicleModelWebApiUrl,
             data: Vehicle,
             headers: {
                 'Content-Type': 'application/json'

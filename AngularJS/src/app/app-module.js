@@ -1,7 +1,8 @@
 ﻿/// <reference path="../scripts/angular.js" />
 
 
-var app = angular.module("vehicleModule", ["ui.router", 'angularUtils.directives.dirPagination','ngMessages'])
+var app = angular.module("vehicleModule", ["ui.router", 'angularUtils.directives.dirPagination', 'ngMessages'])
+              
                 .config(function ($stateProvider, $urlRouterProvider, $urlMatcherFactoryProvider) {
                     $urlRouterProvider.otherwise("");
                     $urlMatcherFactoryProvider.caseInsensitive(true);
@@ -46,23 +47,40 @@ var app = angular.module("vehicleModule", ["ui.router", 'angularUtils.directives
                         controllerAs: "makeCtrl"
 
                     })
-                    .state("Home.Filter", {
-                        url: "/filter?search",
-                        templateUrl: "vehiclemake-templates/vehiclemake-list.html",
-                        controller: "vehiclemakeController",
-                        controllerAs: "makeCtrl"
-
-                    })
-                     .state("Home.Sort", {
-                         url: "/filter?",
-                         templateUrl: "vehiclemake-templates/vehiclemake-list.html",
-                         controller: "vehiclemakeController",
-                         controllerAs: "makeCtrl",
-                         params: {
-                             sortOrder: null
-                         }
+                     .state("Home.VehicleModel", {
+                         url: "/VehicleModel?pageNumber&sortOrder&search",
+                         templateUrl: "vehiclemodel-templates/vehiclemodel-list.html",
+                         controller: "vehicleModelController",
+                         controllerAs: "modelCtrl"
 
                      })
+                     .state("Home.DetailsModel", {
+                         url: "/Details/:Id",
+                         templateUrl: "vehiclemodel-templates/details.html",
+                         controller: "vehicleModelController",
+                         controllerAs: "modelCtrl"
+
+                     })
+                    .state("Home.CreateNewModel", {
+                        url: "/Create",
+                        templateUrl: "vehiclemodel-templates/create.html",
+                        controller: "vehicleModelController",
+                        controllerAs: "modelCtrl"
+                    })
+                     .state("Home.EditModel", {
+                         url: "/Edit/:Id",
+                         templateUrl: "vehiclemodel-templates/edit.html",
+                         controller: "vehicleModelController",
+                         controllerAs: "modelCtrl"
+
+                     })
+                    .state("Home.DeleteModel", {
+                        url: "/Delete/:Id",
+                        templateUrl: "vehiclemodel-templates/delete.html",
+                        controller: "vehicleModelController",
+                        controllerAs: "modelCtrl"
+
+                    })
                     
                   
                 });

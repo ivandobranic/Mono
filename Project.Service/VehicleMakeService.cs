@@ -14,8 +14,7 @@ namespace Project.Service
     {
 
         IRepository<VehicleMake> makeRepository;
-       
-        private readonly string[] MasterCacheKeyArray = { "VehicleMakeCache" };
+     
         public VehicleMakeService(IRepository<VehicleMake> _makeRepository)
         {
             this.makeRepository = _makeRepository;
@@ -52,18 +51,18 @@ namespace Project.Service
            return await makeRepository.DeleteAsync(VehicleMake);
         }
 
-        public int GetVehicleMakeCount(string search)
+        public async Task<int> GetVehicleMakeCount(string search)
         {
 
-            int rowCount = 0;
             if (search != null)
             {
-                return rowCount = makeRepository.Get().Where(x => x.Name.ToLower() == search.ToLower()).Count();
+                return await makeRepository.Get().Where(x => x.Name == search).CountAsync();
             }
             else
             {
-                return rowCount = makeRepository.Get().Count();
+              return await makeRepository.Get().CountAsync();
             }
+          
 
         }
 

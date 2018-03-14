@@ -1,0 +1,37 @@
+﻿
+<h2>Edit</h2>
+<div>
+    <form name="EditForm" ng-submit="modelCtrl.updateModel()">
+        <div class="form-group">
+            <div>
+                <div>
+                    <label><b>MakeId:</b></label>
+                    <select type="text" name="name" ng-model="modelCtrl.vehicleModelById.MakeId"
+                            data-ng-options="i.Id as i.Name
+                       for i in makeCtrl.vehicleMakeData " required></select>
+                </div>
+                <label><b>Name:</b></label>
+                <input type="text" value={{modelCtrl.vehicleModelById.Name}}
+                       ng-model="modelCtrl.vehicleModelById.Name"
+                       minlength="1" required>
+                <div ng-messages="EditForm.name.$error"
+                     ng-if="EditForm.name.$dirty">
+                    <div ng-message="required">This field is required</div>
+                </div>
+            </div>
+            <div>
+                <label><b>Abrv:</b></label>
+                <input type="text" value={{modelCtrl.vehicleModelById.Abrv}}
+                       ng-required="true" ng-model="modelCtrl.vehicleModelById.Abrv"
+                       minlength="1" required />
+                <div ng-messages="EditForm.abrv.$error"
+                     ng-if="EditForm.name.$dirty">
+                    <div ng-message="required">This field is required</div>
+                </div>
+            </div>
+            <div>
+                <input type="submit" value="Save" />
+            </div>
+        </div>
+    </form>
+</div>

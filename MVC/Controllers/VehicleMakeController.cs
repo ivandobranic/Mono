@@ -27,7 +27,7 @@ namespace MVC.Controllers
         [HttpGet]
         public async Task<ActionResult> Index(string sortOrder, string search, int? pageNumber)
         {
-            int rowCount = vehiclemakeService.GetVehicleMakeCount(search);
+            int rowCount = await vehiclemakeService.GetVehicleMakeCount(search);
 
             List<VehicleMakeViewModel> model = new List<VehicleMakeViewModel>();
             List<VehicleMake> pagedList = await vehiclemakeService.PagedList(sortOrder, search, pageNumber ?? 1, 5);

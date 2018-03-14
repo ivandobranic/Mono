@@ -32,7 +32,7 @@ namespace MVC.Controllers
         {
             try
             {
-                int totalRowCount = vehiclemakeService.GetVehicleMakeCount(search);
+                int totalRowCount = await vehiclemakeService.GetVehicleMakeCount(search);
                 List<VehicleMake> pagedList = await vehiclemakeService.PagedList(sortOrder, search, pageNumber ?? 1, 3);       
 
                 var newModel = new
@@ -131,7 +131,7 @@ namespace MVC.Controllers
 
         [HttpDelete]
         [Route("api/VehicleMakeAPI/{model?}")]
-        public async Task<IHttpActionResult> Delete(VehicleMake model)
+        public async Task<IHttpActionResult> Delete([FromBody] VehicleMake model)
         {
             try
             {
