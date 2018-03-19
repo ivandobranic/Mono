@@ -80,7 +80,7 @@ app.controller("vehiclemakeController", function ($http, $stateParams, $state, $
     };
     //delete
     vm.deleteMake = function () {
-        var result = makeService.delete(vm.vehicleMakeById)
+        var result = makeService.delete(vm.vehicleMakeById.Id)
         confirm("Do you want to delete record?")
         result.then(function (response) {
             $state.go("Home.Vehiclemake");

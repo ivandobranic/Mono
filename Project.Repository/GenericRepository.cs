@@ -37,7 +37,7 @@ namespace Project.Repository
             return entities;
         }
 
-        public async Task<TEntity> GetByIdAsync(int? Id)
+        public async Task<TEntity> GetByIdAsync(int Id)
         {
 
             return await entities.FindAsync(Id);
@@ -130,5 +130,6 @@ namespace Project.Repository
                 throw fail;
             }
         }
+
     }
 }

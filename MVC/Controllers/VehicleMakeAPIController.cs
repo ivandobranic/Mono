@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Http;
-using System.Web.Http.Description;
 using Project.Common.Caching;
 using Project.Common.Logging;
 using Project.Model;
@@ -27,18 +26,18 @@ namespace MVC.Controllers
         }
 
         [HttpGet]
-        [Route("api/VehicleMakeAPI/{pageNumber?}/{sortOrder?}/{search?}")]
+        [Route("api/VehicleMakeAPI")]
         public async Task<IHttpActionResult> Get(int? pageNumber = null, string sortOrder = null, string search = null)
         {
             try
             {
-                int totalRowCount = await vehiclemakeService.GetVehicleMakeCount(search);
-                List<VehicleMake> pagedList = await vehiclemakeService.PagedList(sortOrder, search, pageNumber ?? 1, 3);       
-
+                
+                var pagedList = await vehiclemakeService.PagedList(sortOrder, search, pageNumber ?? 1, 3);
+                
                 var newModel = new
                 {
-                    Model = pagedList,
-                    TotalCount = totalRowCount
+                    Model = pagedList.ToList(),
+                    TotalCount = pagedList.TotalItemCount
                 };
 
                 return Ok(newModel);
@@ -55,7 +54,7 @@ namespace MVC.Controllers
 
 
         [HttpGet]
-        [Route("api/VehicleMakeAPI/{id?}")]
+        [Route("api/VehicleMakeAPI/")]
         public async Task<IHttpActionResult> Get(int id)
         {
             try
@@ -64,7 +63,7 @@ namespace MVC.Controllers
                 VehicleMake vehicleMake = caching.GetCacheItem(rawKey, MasterCacheKeyArray) as VehicleMake;
                 if (vehicleMake == null)
                 {
-                    vehicleMake = await vehiclemakeService.GetById(id);
+                    vehicleMake = await vehiclemakeService.GetByIdAsync(id);
                     if (vehicleMake == null)
                     {
                         return NotFound();
@@ -82,13 +81,13 @@ namespace MVC.Controllers
         }
 
         [HttpPost]
-        [Route("api/VehicleMakeAPI/{model?}")]
+        [Route("api/VehicleMakeAPI")]
         public async Task<IHttpActionResult> Post([FromBody]VehicleMake model)
         {
             try
             {
                 caching.InvalidateCache(MasterCacheKeyArray);
-                var result = await vehiclemakeService.Create(model);
+                var result = await vehiclemakeService.CreateAsync(model);
                 var message = Created("entity created", result);
                 return message;
             }
@@ -102,7 +101,7 @@ namespace MVC.Controllers
 
 
         [HttpPut]
-        [Route("api/VehicleMakeAPI/{model?}")]
+        [Route("api/VehicleMakeAPI")]
         public async Task<IHttpActionResult> Put([FromBody] VehicleMake model)
         {
             try
@@ -116,7 +115,7 @@ namespace MVC.Controllers
                 else
                 {
                     caching.InvalidateCache(MasterCacheKeyArray);
-                    await vehiclemakeService.Update(model);
+                    await vehiclemakeService.UpdateAsync(model);
                     return Content(HttpStatusCode.Accepted, model);
                 }
 
@@ -130,11 +129,12 @@ namespace MVC.Controllers
         }
 
         [HttpDelete]
-        [Route("api/VehicleMakeAPI/{model?}")]
-        public async Task<IHttpActionResult> Delete([FromBody] VehicleMake model)
+        [Route("api/VehicleMakeAPI/{Id}")]
+        public async Task<IHttpActionResult> Delete(int Id)
         {
             try
             {
+                VehicleMake model = await vehiclemakeService.GetByIdAsync(Id);
                 if (model == null)
                 {
                     return NotFound();
@@ -143,7 +143,7 @@ namespace MVC.Controllers
                 else
                 {
                     caching.InvalidateCache(MasterCacheKeyArray);
-                    await vehiclemakeService.Delete(model);
+                    await vehiclemakeService.DeleteAsync(model);
                     return Ok();
                 }
             }

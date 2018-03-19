@@ -11,7 +11,7 @@ namespace Project.Service.Common
     {
 
         IEnumerable<VehicleModel> GetAll();
-        Task<VehicleModel> GetById(int? id);
+        Task<VehicleModel> GetById(int id);
         Task<VehicleModel> Create(VehicleModel vehicleModel);
         Task<int> Update(VehicleModel vehicleModel);
         Task<int> Delete(VehicleModel vehicleModel);

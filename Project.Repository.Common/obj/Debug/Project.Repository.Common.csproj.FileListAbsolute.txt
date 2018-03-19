@@ -4,6 +4,12 @@ C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Projec
 C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.Repository.Common\obj\Debug\Project.Repository.Common.pdb
 C:\Users\ivand\Source\Repos\MonoProject\Project.Repository.Common\bin\Debug\Project.Repository.Common.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.Repository.Common\bin\Debug\Project.Repository.Common.pdb
+C:\Users\ivand\Source\Repos\MonoProject\Project.Repository.Common\bin\Debug\PagedList.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.Repository.Common\bin\Debug\Project.Model.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.Repository.Common\bin\Debug\Project.Model.Common.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.Repository.Common\bin\Debug\Project.Model.pdb
+C:\Users\ivand\Source\Repos\MonoProject\Project.Repository.Common\bin\Debug\PagedList.xml
+C:\Users\ivand\Source\Repos\MonoProject\Project.Repository.Common\bin\Debug\Project.Model.Common.pdb
 C:\Users\ivand\Source\Repos\MonoProject\Project.Repository.Common\obj\Debug\Project.Repository.Common.csprojResolveAssemblyReference.cache
 C:\Users\ivand\Source\Repos\MonoProject\Project.Repository.Common\obj\Debug\Project.Repository.Common.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.Repository.Common\obj\Debug\Project.Repository.Common.pdb

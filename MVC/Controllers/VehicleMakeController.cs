@@ -27,12 +27,13 @@ namespace MVC.Controllers
         [HttpGet]
         public async Task<ActionResult> Index(string sortOrder, string search, int? pageNumber)
         {
-            int rowCount = await vehiclemakeService.GetVehicleMakeCount(search);
 
             List<VehicleMakeViewModel> model = new List<VehicleMakeViewModel>();
-            List<VehicleMake> pagedList = await vehiclemakeService.PagedList(sortOrder, search, pageNumber ?? 1, 5);
+            var pagedList = await vehiclemakeService.PagedList(sortOrder, search, pageNumber ?? 1, 5);
+            int rowCount = pagedList.TotalItemCount;
+            var newPagedList = pagedList.ToList();
             ViewBag.sortOrder = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            model = Mapper.Map<List<VehicleMake>, List<VehicleMakeViewModel>>(pagedList);
+            model = Mapper.Map<List<VehicleMake>, List<VehicleMakeViewModel>>(newPagedList);
             Mapper.AssertConfigurationIsValid();
             var paged = new StaticPagedList<VehicleMakeViewModel>(model, pageNumber ?? 1, 5, rowCount);
             return View(paged);
@@ -53,20 +54,17 @@ namespace MVC.Controllers
             {
                 var vehicle = Mapper.Map<VehicleMakeViewModel, VehicleMake>(model);
                 Mapper.AssertConfigurationIsValid();
-                await vehiclemakeService.Create(vehicle);
+                await vehiclemakeService.CreateAsync(vehicle);
                 return RedirectToAction("Index");
             }
             return View(model);
         }
 
-        public async Task<ActionResult> Details(int? id)
+        public async Task<ActionResult> Details(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+          
             VehicleMakeViewModel model = new VehicleMakeViewModel();
-            var vehicleMake = await vehiclemakeService.GetById(id);
+            var vehicleMake = await vehiclemakeService.GetByIdAsync(id);
             if (vehicleMake == null)
             {
                 return HttpNotFound();
@@ -78,14 +76,11 @@ namespace MVC.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> Edit(int? id)
+        public async Task<ActionResult> Edit(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+      
             VehicleMakeViewModel model = new VehicleMakeViewModel();
-            var vehicle = await vehiclemakeService.GetById(id);
+            var vehicle = await vehiclemakeService.GetByIdAsync(id);
             if (vehicle == null)
             {
                 return HttpNotFound();
@@ -103,20 +98,17 @@ namespace MVC.Controllers
                 var vehicle = Mapper.Map<VehicleMakeViewModel, VehicleMake>(model);
                 Mapper.AssertConfigurationIsValid();
 
-                await vehiclemakeService.Update(vehicle);
+                await vehiclemakeService.UpdateAsync(vehicle);
                 return RedirectToAction("Index");
             }
             return View(model);
         }
         [HttpGet]
-        public async Task<ActionResult> Delete(int? id)
+        public async Task<ActionResult> Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+  
             VehicleMakeViewModel model = new VehicleMakeViewModel();
-            var vehicle = await vehiclemakeService.GetById(id);
+            var vehicle = await vehiclemakeService.GetByIdAsync(id);
             if (vehicle == null)
             {
                 return HttpNotFound();
@@ -133,7 +125,7 @@ namespace MVC.Controllers
             Mapper.AssertConfigurationIsValid();
             if (vehicle != null)
             {
-                await vehiclemakeService.Delete(vehicle);
+                await vehiclemakeService.DeleteAsync(vehicle);
                 return RedirectToAction("Index");
             }
             return View(model);

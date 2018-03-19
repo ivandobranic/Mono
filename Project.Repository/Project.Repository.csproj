@@ -33,8 +33,13 @@
     <Reference Include="EntityFramework">
       <HintPath>..\..\..\..\..\..\..\..\nuget data\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\..\nuget data\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,6 +49,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GenericRepository.cs" />
+    <Compile Include="UnitOfWork.cs" />
+    <Compile Include="Paging.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -55,10 +62,17 @@
       <Project>{193A8E2B-126C-4B93-ADA6-6E0FCF93EB0B}</Project>
       <Name>Project.DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Project.Model\Project.Model.csproj">
+      <Project>{4DB9B415-3B90-4296-956A-5BCA57B3AF2C}</Project>
+      <Name>Project.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Project.Repository.Common\Project.Repository.Common.csproj">
       <Project>{834C333F-83E2-4004-B1D8-876F82BB889E}</Project>
       <Name>Project.Repository.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

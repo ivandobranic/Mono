@@ -45,14 +45,10 @@ app.service("makeService", function ($http, $stateParams, vehicleMakeWebApiUrl) 
     }
 
     //delete
-    this.delete = function (Vehicle) {
+    this.delete = function (Id) {
         return $http({
             method: "delete",
-            url: vehicleMakeWebApiUrl,
-            data: Vehicle,
-            headers: {
-                'Content-Type': 'application/json'
-            }
+            url: vehicleMakeWebApiUrl+"/"+Id
         })
 
     }

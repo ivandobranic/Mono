@@ -95,6 +95,7 @@ C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Projec
 C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.WebAPI, MVC.Tests\obj\Debug\Project.WebAPI, MVC.Tests.csproj.Project.WebAPI, MVC.Tests.dll.config
 C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.WebAPI, MVC.Tests\obj\Debug\Project.WebAPI, MVC.Tests.dll
 C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\Project.WebAPI, MVC.Tests\obj\Debug\Project.WebAPI, MVC.Tests.pdb
+C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\obj\Debug\Project.WebAPI, MVC.Tests.csprojResolveAssemblyReference.cache
 C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\xunit.abstractions.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\ApplicationInsights.config
 C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\roslyn\csc.exe
@@ -191,6 +192,5 @@ C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Proj
 C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\EntityFramework.xml
 C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\Antlr3.Runtime.pdb
 C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
-C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\obj\Debug\Project.WebAPI, MVC.Tests.csprojResolveAssemblyReference.cache
 C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\obj\Debug\Project.WebAPI, MVC.Tests.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.WebAPI, MVC.Tests\obj\Debug\Project.WebAPI, MVC.Tests.pdb

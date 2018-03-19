@@ -43,6 +43,7 @@ C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Tests\bin\Debug\xunit.ab
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Tests\bin\Debug\xunit.runner.visualstudio.testadapter.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Tests\bin\Debug\xunit.runner.reporters.net452.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Tests\bin\Debug\xunit.runner.utility.net452.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Tests\bin\Debug\Project.Service.Tests.dll.config
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Tests\bin\Debug\Project.Service.Tests.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Tests\bin\Debug\Project.Service.Tests.pdb
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Tests\bin\Debug\Castle.Core.dll
@@ -59,6 +60,7 @@ C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Tests\bin\Debug\xunit.as
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Tests\bin\Debug\xunit.core.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Tests\bin\Debug\xunit.execution.desktop.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Tests\bin\Debug\Project.Model.Common.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Tests\bin\Debug\PagedList.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Tests\bin\Debug\EntityFramework.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Tests\bin\Debug\Project.Model.pdb
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Tests\bin\Debug\Project.Repository.Common.pdb
@@ -76,6 +78,7 @@ C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Tests\bin\Debug\xunit.as
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Tests\bin\Debug\xunit.core.xml
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Tests\bin\Debug\xunit.execution.desktop.xml
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Tests\bin\Debug\Project.Model.Common.pdb
+C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Tests\bin\Debug\PagedList.xml
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Tests\bin\Debug\EntityFramework.xml
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Tests\obj\Debug\Project.Service.Tests.csprojResolveAssemblyReference.cache
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Tests\obj\Debug\Project.Service.Tests.dll

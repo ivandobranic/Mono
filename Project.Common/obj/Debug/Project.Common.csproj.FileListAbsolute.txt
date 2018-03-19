@@ -27,6 +27,7 @@ C:\Users\ivand\Source\Repos\MonoProject\Project.Common\bin\Debug\Project.Service
 C:\Users\ivand\Source\Repos\MonoProject\Project.Common\bin\Debug\System.Net.Http.Formatting.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.Common\bin\Debug\System.Web.Http.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.Common\bin\Debug\Project.Model.Common.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.Common\bin\Debug\PagedList.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.Common\bin\Debug\Project.Model.pdb
 C:\Users\ivand\Source\Repos\MonoProject\Project.Common\bin\Debug\Project.Service.Common.pdb
 C:\Users\ivand\Source\Repos\MonoProject\Project.Common\bin\Debug\Newtonsoft.Json.xml
@@ -35,6 +36,7 @@ C:\Users\ivand\Source\Repos\MonoProject\Project.Common\bin\Debug\Ninject.xml
 C:\Users\ivand\Source\Repos\MonoProject\Project.Common\bin\Debug\System.Net.Http.Formatting.xml
 C:\Users\ivand\Source\Repos\MonoProject\Project.Common\bin\Debug\System.Web.Http.xml
 C:\Users\ivand\Source\Repos\MonoProject\Project.Common\bin\Debug\Project.Model.Common.pdb
+C:\Users\ivand\Source\Repos\MonoProject\Project.Common\bin\Debug\PagedList.xml
 C:\Users\ivand\Source\Repos\MonoProject\Project.Common\obj\Debug\Project.Common.csprojResolveAssemblyReference.cache
 C:\Users\ivand\Source\Repos\MonoProject\Project.Common\obj\Debug\Project.Common.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.Common\obj\Debug\Project.Common.pdb

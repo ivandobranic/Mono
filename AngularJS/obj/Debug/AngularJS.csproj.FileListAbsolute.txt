@@ -61,6 +61,6 @@ C:\Users\ivand\Source\Repos\MonoProject\AngularJS\bin\Microsoft.AI.Web.xml
 C:\Users\ivand\Source\Repos\MonoProject\AngularJS\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\ivand\Source\Repos\MonoProject\AngularJS\bin\Microsoft.ApplicationInsights.xml
 C:\Users\ivand\Source\Repos\MonoProject\AngularJS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\ivand\Source\Repos\MonoProject\AngularJS\obj\Debug\AngularJS.csprojResolveAssemblyReference.cache
 C:\Users\ivand\Source\Repos\MonoProject\AngularJS\obj\Debug\AngularJS.dll
 C:\Users\ivand\Source\Repos\MonoProject\AngularJS\obj\Debug\AngularJS.pdb
+C:\Users\ivand\Source\Repos\MonoProject\AngularJS\obj\Debug\AngularJS.csprojResolveAssemblyReference.cache

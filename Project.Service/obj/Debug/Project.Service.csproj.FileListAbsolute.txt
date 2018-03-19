@@ -23,6 +23,7 @@ C:\Users\ivand\Source\Repos\MonoProject\Project.Service\bin\Debug\Project.Servic
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service\bin\Debug\Project.Service.pdb
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service\bin\Debug\EntityFramework.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.Service\bin\Debug\PagedList.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service\bin\Debug\Project.Common.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service\bin\Debug\Project.Model.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service\bin\Debug\Project.Repository.Common.dll
@@ -34,6 +35,7 @@ C:\Users\ivand\Source\Repos\MonoProject\Project.Service\bin\Debug\Project.Reposi
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service\bin\Debug\Project.Service.Common.pdb
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service\bin\Debug\EntityFramework.xml
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ivand\Source\Repos\MonoProject\Project.Service\bin\Debug\PagedList.xml
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service\bin\Debug\Project.Model.Common.pdb
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service\obj\Debug\Project.Service.csprojResolveAssemblyReference.cache
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service\obj\Debug\Project.Service.dll

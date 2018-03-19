@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
+using PagedList;
 using Project.Common.Caching;
 using Project.Model;
 using Project.Repository.Common;
@@ -13,89 +14,46 @@ namespace Project.Service
     public class VehicleMakeService : IVehicleMakeService
     {
 
-        IRepository<VehicleMake> makeRepository;
+        IUnitOfWork unitOfWork;
+        IPaging paging;
      
-        public VehicleMakeService(IRepository<VehicleMake> _makeRepository)
+        public VehicleMakeService(IUnitOfWork _unitOfWork, IPaging _paging)
         {
-            this.makeRepository = _makeRepository;
-          
+            this.unitOfWork = _unitOfWork;
+            this.paging = _paging;
         }
 
-        public IEnumerable<VehicleMake> GetAll()
-        {
-          
-            return makeRepository.Get();
-        }
 
-        public async Task<VehicleMake> GetById(int? id)
+        public async Task<VehicleMake> GetByIdAsync(int id)
         {
 
-            return await makeRepository.GetByIdAsync(id);
+            return await unitOfWork.GetByIdAsync<VehicleMake>(id);
                
         }
 
-        public async Task<VehicleMake> Create(VehicleMake VehicleMake)
+        public async Task<int> CreateAsync(VehicleMake VehicleMake)
         {
             
-            return await makeRepository.InsertAsync(VehicleMake);
+            await unitOfWork.InsertAsync(VehicleMake);
+            return await unitOfWork.CommitAsync();
         }
 
-        public async Task<int> Update(VehicleMake VehicleMake)
+        public async Task<int> UpdateAsync(VehicleMake VehicleMake)
         {
             
-            return await makeRepository.UpdateAsync(VehicleMake);
+            await unitOfWork.UpdateAsync(VehicleMake);
+            return await unitOfWork.CommitAsync();
         }
 
-        public async Task<int> Delete(VehicleMake VehicleMake)
+        public async Task<int> DeleteAsync(VehicleMake VehicleMake)
         {
-           return await makeRepository.DeleteAsync(VehicleMake);
+           await unitOfWork.DeleteAsync(VehicleMake);
+           return await unitOfWork.CommitAsync();
         }
 
-        public async Task<int> GetVehicleMakeCount(string search)
+        public async Task<StaticPagedList<VehicleMake>> PagedList(string sortOrder, string search, int pageNumber, int pageSize)
         {
-
-            if (search != null)
-            {
-                return await makeRepository.Get().Where(x => x.Name == search).CountAsync();
-            }
-            else
-            {
-              return await makeRepository.Get().CountAsync();
-            }
-          
-
-        }
-
-        public async Task<IEnumerable<VehicleMake>> Sorting(string sortOrder)
-        {   
-            var query = makeRepository.Get();
-            query = sortOrder == "name_desc" ? query.OrderByDescending(x => x.Name) : query.OrderBy(x => x.Name);
-            return await query.ToListAsync();
-        }
-
-        public async Task<IEnumerable<VehicleMake>> Filtering(string search)
-        {
-            return await makeRepository.Get().Where(x => x.Name.ToLower() == search.ToLower()).ToListAsync();
-        }
-
-        public async Task<List<VehicleMake>> PagedList(string sortOrder, string search, int pageNumber, int pageSize)
-        {
-           
-            var query = makeRepository.Get();
-           
-            query = sortOrder == "name_desc" ? query.OrderByDescending(x => x.Name) : query.OrderBy(x => x.Name);
-            if (search != null)
-            {
-                
-                return await query.Where(x => x.Name.ToLower() == search.ToLower()).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
-            }
-            else
-            {
-                
-                return await query.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
-            }
-
-           
+            return await paging.GetPagedResultMake(sortOrder, search, pageNumber, pageSize);
         }
     }
 }

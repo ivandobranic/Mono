@@ -23,7 +23,7 @@ namespace Project.Service
             return modelRepository.Get();
         }
 
-        public async Task<VehicleModel> GetById(int? id)
+        public async Task<VehicleModel> GetById(int id)
         {
             return await modelRepository.GetByIdAsync(id);
         }
