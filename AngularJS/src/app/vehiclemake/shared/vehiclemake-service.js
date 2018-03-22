@@ -11,7 +11,7 @@ app.service("makeService", function ($http, $stateParams, vehicleMakeWebApiUrl) 
             url: vehicleMakeWebApiUrl,
             method: "get",
             params: {
-                pageNumber: newPageNumber, sortOrder: sorting,
+                pageNumber: newPageNumber, isAscending: sorting,
                 search: filter
             }
         });

@@ -7,20 +7,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
 using Project.DAL;
+using Project.Model;
 using Project.Repository.Common;
 
 namespace Project.Repository
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly VehicleContext context;
-
-        public UnitOfWork(VehicleContext _context)
+        private readonly VehicleContext Context;
+        private IRepository<VehicleMake> VehicleMakeRepository;
+        private IRepository<VehicleModel> VehicleModelRepository;
+        public UnitOfWork(VehicleContext context, IRepository<VehicleMake> vehicleMakeRepository,
+            IRepository<VehicleModel> vehicleModelRepository)
         {
-            this.context = _context;
-            MakeRepository = new VehicleMakeRepository(_context);
-            ModelRepository = new VehicleModelRepository(_context);
+            this.Context = context;
+            this.VehicleMakeRepository = vehicleMakeRepository;
+            this.VehicleModelRepository = vehicleModelRepository;
+            MakeRepository = new VehicleMakeRepository(Context, VehicleMakeRepository);
+            ModelRepository = new VehicleModelRepository(Context, VehicleModelRepository);
+
         }
+
         public IMakeRepository MakeRepository { get; private set; }
         public IModelRepository ModelRepository { get; private set; }
         public async Task<int> CommitAsync()
@@ -28,7 +35,7 @@ namespace Project.Repository
             int result = 0;
             using (TransactionScope scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
             {
-                result = await context.SaveChangesAsync();
+                result = await Context.SaveChangesAsync();
                 scope.Complete();
             }
             return result;
@@ -36,7 +43,7 @@ namespace Project.Repository
 
         public void Dispose()
         {
-            context.Dispose();
+            Context.Dispose();
         }
 
     }

@@ -27,20 +27,20 @@ namespace MVC.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> Index(string sortOrder, string search, int? pageNumber)
+        public async Task<ActionResult> Index(string search, int? pageNumber, bool isAscending = false)
         {
-            filter.search = search;
-            filter.sortOrder = sortOrder;
-            filter.pageNumber = pageNumber ?? 1;
-            filter.pageSize = 3;
+            filter.Search = search;
+            filter.IsAscending = isAscending;
+            filter.PageNumber = pageNumber ?? 1;
+            filter.PageSize = 3;
 
             List<VehicleMakeViewModel> model = new List<VehicleMakeViewModel>();
             var pagedList = await vehiclemakeService.PagedList(filter);
             var newPagedList = pagedList.ToList();
-            ViewBag.sortOrder = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.sortOrder = isAscending ? false : true;
             model = Mapper.Map<List<VehicleMake>, List<VehicleMakeViewModel>>(newPagedList);
             Mapper.AssertConfigurationIsValid();
-            var paged = new StaticPagedList<VehicleMakeViewModel>(model, pageNumber ?? 1, 3, filter.totalCount);
+            var paged = new StaticPagedList<VehicleMakeViewModel>(model, pageNumber ?? 1, 3, filter.TotalCount);
             return View(paged);
 
         }

@@ -12,10 +12,10 @@ app.controller("vehiclemakeController", function ($http, $stateParams, $state, $
     vm.pageNumber = 1;
     vm.totalcount = 0;
     vm.pageSize = 3;
-    vm.sortBy = "";
+    vm.isAcending = false;
     vm.filter = "";
     vm.sort = function () {
-        vm.sorting = vm.sortBy == "" ? vm.sortBy = "name_desc" : vm.sortBy = "";
+        vm.sorting = vm.isAscending == false ? vm.isAscending= true : vm.isAscending = false;
         $state.go("Home.Vehiclemake");
         vm.getPaged(vm.pageNumber);  
     }

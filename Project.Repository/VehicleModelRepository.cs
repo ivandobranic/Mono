@@ -11,33 +11,34 @@ using Project.Repository.Common;
 
 namespace Project.Repository
 {
-    public class VehicleModelRepository : GenericRepository<VehicleModel>, IModelRepository
+    public class VehicleModelRepository : IModelRepository
     {
-       
-        public VehicleModelRepository(VehicleContext _context) : base(_context)
-        {
 
-        }
-        public VehicleContext Context
+        private readonly VehicleContext context;
+        private readonly IRepository<VehicleModel> repository;
+        public VehicleModelRepository(VehicleContext _context, IRepository<VehicleModel> _repository)
         {
-            get { return context as VehicleContext;}
+            this.repository = _repository;
+            this.context = _context;
         }
+
+
         public async Task<IPagedList<VehicleModel>> GetPagedModel(IFilter filter)
         {
-            var query = Context.Set<VehicleModel>().AsQueryable();
-            query = filter.sortOrder == "name_desc" ? query.OrderByDescending(x => x.Name) : query.OrderBy(x => x.Name);
-            if (filter.search != null)
+            var query = context.Set<VehicleModel>().AsQueryable();
+            query = filter.IsAscending == false ? query.OrderByDescending(x => x.Name) : query.OrderBy(x => x.Name);
+            if (filter.Search != null)
             {
-                filter.totalCount = await query.Where(x => x.Name == filter.search).CountAsync();
-                query = query.Where(x => x.Name.ToLower() == filter.search.ToLower()).Skip((filter.pageNumber - 1) * filter.pageSize).Take(filter.pageSize);
+                filter.TotalCount = await query.Where(x => x.Name == filter.Search).CountAsync();
+                query = query.Where(x => x.Name == filter.Search).Skip((filter.PageNumber - 1) * filter.PageSize).Take(filter.PageSize);
             }
             else
             {
-                filter.totalCount = await query.CountAsync();
-                query = query.Skip((filter.pageNumber - 1) * filter.pageSize).Take(filter.pageSize);
+                filter.TotalCount = await query.CountAsync();
+                query = query.Skip((filter.PageNumber - 1) * filter.PageSize).Take(filter.PageSize);
             }
 
-            return new StaticPagedList<VehicleModel>(query, filter.pageNumber, filter.pageSize, filter.totalCount);
+            return new StaticPagedList<VehicleModel>(query, filter.PageNumber, filter.PageSize, filter.TotalCount);
         }
     }
 }

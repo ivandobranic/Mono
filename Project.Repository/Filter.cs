@@ -10,10 +10,10 @@ namespace Project.Repository
 {
     public class Filter : IFilter
     {
-        public int pageNumber { get; set; }
-        public int pageSize { get; set; }
-        public string sortOrder { get; set; }
-        public string search { get; set; }
-        public int totalCount { get; set; }
+        public int PageNumber { get; set; }
+        public int PageSize { get; set; }
+        public bool IsAscending { get; set; }
+        public string Search { get; set; }
+        public int TotalCount { get; set; }
     }
 }

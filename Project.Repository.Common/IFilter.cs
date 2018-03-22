@@ -9,10 +9,10 @@ namespace Project.Repository.Common
 {
     public interface IFilter
     {
-        int pageNumber { get; set; }
-        int pageSize { get; set; }
-        string sortOrder { get; set; }
-        string search { get; set; }
-        int totalCount { get; set; }
+        int PageNumber { get; set; }
+        int PageSize { get; set; }
+        bool IsAscending { get; set; }
+        string Search { get; set; }
+        int TotalCount { get; set; }
     }
 }

@@ -23,7 +23,7 @@
     <tr>
         <th>
 
-            @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.sortOrder, search = Request["search"] })
+            @Html.ActionLink("Name", "Index", new { IsAscending = ViewBag.sortOrder, search = Request["search"] })
 
         </th>
         <th>

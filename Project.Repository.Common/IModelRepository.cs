@@ -8,7 +8,7 @@ using Project.Model;
 
 namespace Project.Repository.Common
 {
-    public interface IModelRepository : IRepository<VehicleModel>
+    public interface IModelRepository 
     {
         Task<IPagedList<VehicleModel>> GetPagedModel(IFilter filter);
     }

@@ -31,15 +31,15 @@ namespace MVC.Controllers
 
         [HttpGet]
         [Route("api/VehicleMakeAPI")]
-        public async Task<IHttpActionResult> Get(int? pageNumber = null, string sortOrder = null, string search = null)
+        public async Task<IHttpActionResult> Get(int? pageNumber = null, bool? isAscending = null, string search = null)
         {
             try
             {
 
-                filter.pageNumber = pageNumber ?? 1;
-                filter.pageSize = 3;
-                filter.search = search;
-                filter.sortOrder = sortOrder;
+                filter.PageNumber = pageNumber ?? 1;
+                filter.PageSize = 3;
+                filter.Search = search;
+                filter.IsAscending = isAscending ?? false;
               
                
                 var pagedList = await vehiclemakeService.PagedList(filter);

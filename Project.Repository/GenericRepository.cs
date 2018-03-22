@@ -14,7 +14,7 @@ namespace Project.Repository
      where TEntity : class
     {
 
-        protected VehicleContext context;
+        private readonly VehicleContext context;
         private DbSet<TEntity> entities;
         public GenericRepository(VehicleContext _context)
         {
