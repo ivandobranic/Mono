@@ -122,7 +122,7 @@ namespace Project.Repository.Tests
             var mockSet = new Mock<DbSet<VehicleModel>>();
             mockContext.Setup(x => x.VehicleModel).Returns(mockSet.Object);
             var modelrepository = new Mock<GenericRepository<VehicleModel>>(mockContext.Object);
-            modelrepository.Setup(x => x.SetEntityStateDeleted(vehicleModel));
+            modelrepository.Setup(x => x.DeleteAsync(vehicleModel));
             var result = await modelrepository.Object.DeleteAsync(vehicleModel);
     
 
@@ -139,7 +139,7 @@ namespace Project.Repository.Tests
             var mockSet = new Mock<DbSet<VehicleModel>>();
             mockContext.Setup(x => x.VehicleModel).Returns(mockSet.Object);
             var modelrepository = new Mock<GenericRepository<VehicleModel>>(mockContext.Object);
-            modelrepository.Setup(x => x.SetEntityStateModified(vehicleModel));
+            modelrepository.Setup(x => x.DeleteAsync(vehicleModel));
             var result = await modelrepository.Object.UpdateAsync(vehicleModel);
             
            

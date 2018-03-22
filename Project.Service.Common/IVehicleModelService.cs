@@ -9,10 +9,8 @@ namespace Project.Service.Common
 {
     public interface IVehicleModelService
     {
-
-        IEnumerable<VehicleModel> GetAll();
         Task<VehicleModel> GetById(int id);
-        Task<VehicleModel> Create(VehicleModel vehicleModel);
+        Task<int> Create(VehicleModel vehicleModel);
         Task<int> Update(VehicleModel vehicleModel);
         Task<int> Delete(VehicleModel vehicleModel);
         Task<int> GetVehicleModelCount(string search);

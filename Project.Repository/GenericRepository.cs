@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,23 +14,13 @@ namespace Project.Repository
      where TEntity : class
     {
 
-        private readonly VehicleContext context;
+        protected VehicleContext context;
         private DbSet<TEntity> entities;
         public GenericRepository(VehicleContext _context)
         {
             this.context = _context;
             entities = context.Set<TEntity>();
 
-        }
-
-        public virtual void SetEntityStateModified(TEntity entity)
-        {
-            context.Entry(entity).State = EntityState.Modified;
-        }
-
-        public virtual void SetEntityStateDeleted(TEntity entity)
-        {
-            context.Entry(entity).State = EntityState.Deleted;
         }
 
         public IQueryable<TEntity> Get()
@@ -44,7 +35,7 @@ namespace Project.Repository
 
         }
 
-        public async Task<TEntity> InsertAsync(TEntity entity)
+        public Task<int> InsertAsync(TEntity entity)
         {
             try
             {
@@ -52,9 +43,18 @@ namespace Project.Repository
                 {
                     throw new ArgumentException("entity");
                 }
-                entities.Add(entity);
-                await context.SaveChangesAsync();
-                return entity;
+
+                DbEntityEntry dbEntityEntry = context.Entry(entity);
+                if (dbEntityEntry.State != EntityState.Detached)
+                {
+                    dbEntityEntry.State = EntityState.Added;
+                }
+                else
+                {
+                    entities.Add(entity);
+                }
+                return Task.FromResult(1);
+
             }
             catch (DbEntityValidationException dbEx)
             {
@@ -75,7 +75,7 @@ namespace Project.Repository
 
         }
 
-        public async Task<int> UpdateAsync(TEntity entity)
+        public Task<int> UpdateAsync(TEntity entity)
         {
             try
             {
@@ -83,8 +83,14 @@ namespace Project.Repository
                 {
                     throw new ArgumentException("entity");
                 }
-                SetEntityStateModified(entity);
-                return await context.SaveChangesAsync();
+              
+                DbEntityEntry dbEntityEntry = context.Entry(entity);
+                if (dbEntityEntry.State != EntityState.Detached)
+                {
+                    entities.Attach(entity);
+                }
+                dbEntityEntry.State = EntityState.Modified;
+                return Task.FromResult(1);
             }
             catch (DbEntityValidationException dbEx)
             {
@@ -103,7 +109,7 @@ namespace Project.Repository
             }
         }
 
-        public async Task<int> DeleteAsync(TEntity entity)
+        public Task<int> DeleteAsync(TEntity entity)
         {
             try
             {
@@ -111,8 +117,17 @@ namespace Project.Repository
                 {
                     throw new ArgumentNullException("entity");
                 }
-                SetEntityStateDeleted(entity);
-                return await context.SaveChangesAsync();
+                DbEntityEntry dbEntityEntry = context.Entry(entity);
+                if (dbEntityEntry.State != EntityState.Deleted)
+                {
+                    dbEntityEntry.State = EntityState.Deleted;
+                }
+                else
+                {
+                    entities.Attach(entity);
+                    entities.Remove(entity);
+                }
+                return Task.FromResult(1);
             }
             catch (DbEntityValidationException dbEx)
             {
@@ -131,5 +146,6 @@ namespace Project.Repository
             }
         }
 
+         
     }
 }

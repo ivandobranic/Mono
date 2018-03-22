@@ -15,45 +15,41 @@ namespace Project.Service
     {
 
         IUnitOfWork unitOfWork;
-        IPaging paging;
-     
-        public VehicleMakeService(IUnitOfWork _unitOfWork, IPaging _paging)
+        public VehicleMakeService(IUnitOfWork _unitOfWork, IMakeRepository _makeRepository)
         {
-            this.unitOfWork = _unitOfWork;
-            this.paging = _paging;
+            this.unitOfWork = _unitOfWork; 
         }
 
 
         public async Task<VehicleMake> GetByIdAsync(int id)
         {
 
-            return await unitOfWork.GetByIdAsync<VehicleMake>(id);
+            return await unitOfWork.MakeRepository.GetByIdAsync(id);
                
         }
 
         public async Task<int> CreateAsync(VehicleMake VehicleMake)
         {
-            
-            await unitOfWork.InsertAsync(VehicleMake);
+            await unitOfWork.MakeRepository.InsertAsync(VehicleMake);
             return await unitOfWork.CommitAsync();
         }
 
         public async Task<int> UpdateAsync(VehicleMake VehicleMake)
         {
             
-            await unitOfWork.UpdateAsync(VehicleMake);
+            await unitOfWork.MakeRepository.UpdateAsync(VehicleMake);
             return await unitOfWork.CommitAsync();
         }
 
         public async Task<int> DeleteAsync(VehicleMake VehicleMake)
         {
-           await unitOfWork.DeleteAsync(VehicleMake);
+           await unitOfWork.MakeRepository.DeleteAsync(VehicleMake);
            return await unitOfWork.CommitAsync();
         }
 
-        public async Task<StaticPagedList<VehicleMake>> PagedList(string sortOrder, string search, int pageNumber, int pageSize)
+        public async Task<IPagedList<VehicleMake>> PagedList(IFilter filter)
         {
-            return await paging.GetPagedResultMake(sortOrder, search, pageNumber, pageSize);
+            return await unitOfWork.MakeRepository.GetPagedMake(filter);
         }
     }
 }

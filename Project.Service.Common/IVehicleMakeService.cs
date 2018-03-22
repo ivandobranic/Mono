@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using PagedList;
 using Project.Model;
+using Project.Repository.Common;
 
 namespace Project.Service.Common
 {
@@ -14,6 +15,6 @@ namespace Project.Service.Common
         Task<int> CreateAsync(VehicleMake VehicleMake);
         Task<int> UpdateAsync (VehicleMake VehicleMake);
         Task<int> DeleteAsync(VehicleMake VehicleMake);
-        Task<StaticPagedList<VehicleMake>> PagedList(string sortOrder, string search, int pageNumber, int pageSize);
+        Task<IPagedList<VehicleMake>> PagedList(IFilter filter);
     }
 }

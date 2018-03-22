@@ -20,15 +20,8 @@ namespace Service.Tests
                new VehicleModel {Id = 3, MakeId = 2, Name = "X1", Abrv = "x1" }
             };
         Mock<IRepository<VehicleModel>> repositoryModel = new Mock<IRepository<VehicleModel>>();
-        [Fact]
-        public void GetAll()
-        {
-          
-            repositoryModel.Setup(x => x.Get()).Returns(vehicleModelList.AsQueryable());
-            var vehicleModelService  = new VehicleModelService(repositoryModel.Object);
-            var result = vehicleModelService.GetAll();
-            result.Count().ShouldBeEquivalentTo(2);
-        }
+    
+   
 
         [Fact]
         public async Task GetByIdAsync()
@@ -45,10 +38,10 @@ namespace Service.Tests
         public async Task Create()
         {
             var newVehicleModel = new VehicleModel { Id = 5, MakeId = 3, Name = "306", Abrv = "306" };
-            repositoryModel.Setup(x => x.InsertAsync(It.IsAny<VehicleModel>())).ReturnsAsync(newVehicleModel);
+            repositoryModel.Setup(x => x.InsertAsync(It.IsAny<VehicleModel>())).ReturnsAsync(1);
             var vehicleModelService = new VehicleModelService(repositoryModel.Object);
             var result = await vehicleModelService.Create(newVehicleModel);
-            result.ShouldBeEquivalentTo(newVehicleModel);
+            result.ShouldBeEquivalentTo(1);
        
         }
 

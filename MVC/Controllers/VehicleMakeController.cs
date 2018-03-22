@@ -10,6 +10,7 @@ using MVC.Models;
 using PagedList;
 using Project.Common.Caching;
 using Project.Model;
+using Project.Repository.Common;
 using Project.Service.Common;
 
 namespace MVC.Controllers
@@ -17,25 +18,29 @@ namespace MVC.Controllers
     public class VehicleMakeController : Controller
     {
         IVehicleMakeService vehiclemakeService;
-
+        IFilter filter;
         
-        public VehicleMakeController(IVehicleMakeService _vehiclemakeService)
+        public VehicleMakeController(IVehicleMakeService _vehiclemakeService, IFilter _filter)
         {
             this.vehiclemakeService = _vehiclemakeService;
+            this.filter = _filter;
         }
 
         [HttpGet]
         public async Task<ActionResult> Index(string sortOrder, string search, int? pageNumber)
         {
+            filter.search = search;
+            filter.sortOrder = sortOrder;
+            filter.pageNumber = pageNumber ?? 1;
+            filter.pageSize = 3;
 
             List<VehicleMakeViewModel> model = new List<VehicleMakeViewModel>();
-            var pagedList = await vehiclemakeService.PagedList(sortOrder, search, pageNumber ?? 1, 5);
-            int rowCount = pagedList.TotalItemCount;
+            var pagedList = await vehiclemakeService.PagedList(filter);
             var newPagedList = pagedList.ToList();
             ViewBag.sortOrder = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             model = Mapper.Map<List<VehicleMake>, List<VehicleMakeViewModel>>(newPagedList);
             Mapper.AssertConfigurationIsValid();
-            var paged = new StaticPagedList<VehicleMakeViewModel>(model, pageNumber ?? 1, 5, rowCount);
+            var paged = new StaticPagedList<VehicleMakeViewModel>(model, pageNumber ?? 1, 3, filter.totalCount);
             return View(paged);
 
         }

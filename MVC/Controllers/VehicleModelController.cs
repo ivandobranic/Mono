@@ -19,10 +19,13 @@ namespace MVC.Controllers
     {
         IVehicleModelService vehicleModelService;
         IRepository<VehicleMake> makeRepository;
-        public VehicleModelController(IVehicleModelService _vehicleModelService, IRepository<VehicleMake> _makeRepository)
+        IRepository<VehicleModel> modelRepository;
+        public VehicleModelController(IVehicleModelService _vehicleModelService, 
+            IRepository<VehicleMake> _makeRepository, IRepository<VehicleModel> _modelRepository)
         {
             this.vehicleModelService = _vehicleModelService;
             this.makeRepository = _makeRepository;
+            this.modelRepository = _modelRepository;
         }
         [HttpGet]
         public async Task<ActionResult> Index(string sortOrder, string search, int? pageNumber)
@@ -59,7 +62,7 @@ namespace MVC.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             List<VehicleModelViewModel> model = new List<VehicleModelViewModel>();
-            var vehicleModel = vehicleModelService.GetAll().Where(x => x.MakeId == MakeId).ToList();
+            var vehicleModel = modelRepository.Get().Where(x => x.MakeId == MakeId).ToList();
             if (vehicleModel == null)
             {
                 return HttpNotFound();

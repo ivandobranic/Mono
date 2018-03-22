@@ -18,17 +18,13 @@ namespace Project.Service
             this.modelRepository = _modelRepository;
         }
 
-        public IEnumerable<VehicleModel> GetAll()
-        {
-            return modelRepository.Get();
-        }
 
         public async Task<VehicleModel> GetById(int id)
         {
             return await modelRepository.GetByIdAsync(id);
         }
 
-        public async Task<VehicleModel> Create(VehicleModel vehicleModel)
+        public async Task<int> Create(VehicleModel vehicleModel)
         {
             return await modelRepository.InsertAsync(vehicleModel);
         }

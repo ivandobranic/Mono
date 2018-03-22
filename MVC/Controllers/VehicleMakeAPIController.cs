@@ -6,6 +6,8 @@ using System.Web.Http;
 using Project.Common.Caching;
 using Project.Common.Logging;
 using Project.Model;
+using Project.Repository;
+using Project.Repository.Common;
 using Project.Service.Common;
 
 namespace MVC.Controllers
@@ -16,13 +18,15 @@ namespace MVC.Controllers
         IVehicleMakeService vehiclemakeService;
         ICaching caching;
         IErrorLogger logError;
+        IFilter filter;
         private readonly string[] MasterCacheKeyArray = { "VehicleMakeCache" };
         public VehicleMakeAPIController(IVehicleMakeService _vehiclemakeService, 
-            ICaching _caching, IErrorLogger _logError)
+            ICaching _caching, IErrorLogger _logError, IFilter _filter)
         {
             this.vehiclemakeService = _vehiclemakeService;
             this.caching = _caching;
             this.logError = _logError;
+            this.filter = _filter;
         }
 
         [HttpGet]
@@ -31,8 +35,14 @@ namespace MVC.Controllers
         {
             try
             {
-                
-                var pagedList = await vehiclemakeService.PagedList(sortOrder, search, pageNumber ?? 1, 3);
+
+                filter.pageNumber = pageNumber ?? 1;
+                filter.pageSize = 3;
+                filter.search = search;
+                filter.sortOrder = sortOrder;
+              
+               
+                var pagedList = await vehiclemakeService.PagedList(filter);
                 
                 var newModel = new
                 {

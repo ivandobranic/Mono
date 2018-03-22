@@ -8,9 +8,8 @@ using Project.Model;
 
 namespace Project.Repository.Common
 {
-    public interface IPaging
+    public interface IModelRepository : IRepository<VehicleModel>
     {
-       Task<StaticPagedList<VehicleMake>> GetPagedResultMake(string sortOrder, string search, int pageNumber, int pageSize);
-        
+        Task<IPagedList<VehicleModel>> GetPagedModel(IFilter filter);
     }
 }

@@ -18,52 +18,11 @@ namespace Project.Repository
         public UnitOfWork(VehicleContext _context)
         {
             this.context = _context;
+            MakeRepository = new VehicleMakeRepository(_context);
+            ModelRepository = new VehicleModelRepository(_context);
         }
-        public Task<int> DeleteAsync<TEntity>(TEntity entity) where TEntity : class
-        {
-            DbEntityEntry dbEntityEntry = context.Entry(entity);
-            if(dbEntityEntry.State != EntityState.Deleted)
-            {
-                dbEntityEntry.State = EntityState.Deleted;
-            }
-            else
-            {
-                context.Set<TEntity>().Attach(entity);
-                context.Set<TEntity>().Remove(entity);
-            }
-            return Task.FromResult(1);
-        }
-
-        public async Task<TEntity> GetByIdAsync<TEntity>(int id) where TEntity : class
-        {
-           return await context.Set<TEntity>().FindAsync(id);
-        }
-
-        public Task<int> InsertAsync<TEntity>(TEntity entity) where TEntity : class
-        {
-            DbEntityEntry dbEntityEntry = context.Entry(entity);
-            if (dbEntityEntry.State != EntityState.Detached)
-            {
-                dbEntityEntry.State = EntityState.Added;
-            }
-            else
-            {
-                context.Set<TEntity>().Add(entity);
-            }
-            return Task.FromResult(1);
-        }
-
-        public Task<int> UpdateAsync<TEntity>(TEntity entity) where TEntity : class
-        {
-            DbEntityEntry dbEntityEntry = context.Entry(entity);
-            if (dbEntityEntry.State != EntityState.Detached)
-            {
-                context.Set<TEntity>().Attach(entity);
-            }
-            dbEntityEntry.State = EntityState.Modified;
-            return Task.FromResult(1);
-        }
-
+        public IMakeRepository MakeRepository { get; private set; }
+        public IModelRepository ModelRepository { get; private set; }
         public async Task<int> CommitAsync()
         {
             int result = 0;

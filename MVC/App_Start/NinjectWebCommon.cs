@@ -73,12 +73,13 @@ namespace MVC.App_Start
 
             kernel.Bind<IRepository<VehicleMake>>().To<GenericRepository<VehicleMake>>();
             kernel.Bind<IRepository<VehicleModel>>().To<GenericRepository<VehicleModel>>();
+            kernel.Bind<IMakeRepository>().To<VehicleMakeRepository>();
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>();
             kernel.Bind<IVehicleMakeService>().To<VehicleMakeService>();
             kernel.Bind<IVehicleModelService>().To<VehicleModelService>();
-            kernel.Bind<IPaging>().To<Paging>();
             kernel.Bind<ICaching>().To<Caching>();
             kernel.Bind<IErrorLogger>().To<ErrorLogger>();
+            kernel.Bind<IFilter>().To<Filter>();
             
 
         }

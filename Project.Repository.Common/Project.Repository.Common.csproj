@@ -44,8 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IFilter.cs" />
+    <Compile Include="IMakeRepository.cs" />
+    <Compile Include="IModelRepository.cs" />
     <Compile Include="IRepository.cs" />
-    <Compile Include="IPaging.cs" />
     <Compile Include="IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

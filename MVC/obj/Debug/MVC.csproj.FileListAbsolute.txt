@@ -101,7 +101,6 @@ C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\MVC\bi
 C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\MVC\obj\Debug\MVC.csprojResolveAssemblyReference.cache
 C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\MVC\obj\Debug\MVC.dll
 C:\Users\ivand\onedrive\documents\visual studio 2015\Projects\MonoProject\MVC\obj\Debug\MVC.pdb
-C:\Users\ivand\Source\Repos\MonoProject\MVC\obj\Debug\MVC.csprojResolveAssemblyReference.cache
 C:\Users\ivand\Source\Repos\MonoProject\MVC\bin\ApplicationInsights.config
 C:\Users\ivand\Source\Repos\MonoProject\MVC\bin\roslyn\csc.exe
 C:\Users\ivand\Source\Repos\MonoProject\MVC\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -202,5 +201,6 @@ C:\Users\ivand\Source\Repos\MonoProject\MVC\bin\Antlr3.Runtime.pdb
 C:\Users\ivand\Source\Repos\MonoProject\MVC\bin\Newtonsoft.Json.xml
 C:\Users\ivand\Source\Repos\MonoProject\MVC\bin\Project.Model.Common.pdb
 C:\Users\ivand\Source\Repos\MonoProject\MVC\bin\Project.DAL.pdb
+C:\Users\ivand\Source\Repos\MonoProject\MVC\obj\Debug\MVC.csprojResolveAssemblyReference.cache
 C:\Users\ivand\Source\Repos\MonoProject\MVC\obj\Debug\MVC.dll
 C:\Users\ivand\Source\Repos\MonoProject\MVC\obj\Debug\MVC.pdb

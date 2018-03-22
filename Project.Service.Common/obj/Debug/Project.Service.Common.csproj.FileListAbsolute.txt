@@ -11,8 +11,10 @@ C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Common\bin\Debug\Project
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Common\bin\Debug\Project.Service.Common.pdb
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Common\bin\Debug\PagedList.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Common\bin\Debug\Project.Model.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Common\bin\Debug\Project.Repository.Common.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Common\bin\Debug\Project.Model.Common.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Common\bin\Debug\Project.Model.pdb
+C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Common\bin\Debug\Project.Repository.Common.pdb
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Common\bin\Debug\PagedList.xml
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Common\bin\Debug\Project.Model.Common.pdb
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Common\obj\Debug\Project.Service.Common.csprojResolveAssemblyReference.cache
