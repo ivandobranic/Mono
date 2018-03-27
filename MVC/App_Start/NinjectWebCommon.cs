@@ -74,6 +74,7 @@ namespace MVC.App_Start
             kernel.Bind<IRepository<VehicleMake>>().To<GenericRepository<VehicleMake>>();
             kernel.Bind<IRepository<VehicleModel>>().To<GenericRepository<VehicleModel>>();
             kernel.Bind<IMakeRepository>().To<VehicleMakeRepository>();
+            kernel.Bind<IModelRepository>().To<VehicleModelRepository>();
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>();
             kernel.Bind<IVehicleMakeService>().To<VehicleMakeService>();
             kernel.Bind<IVehicleModelService>().To<VehicleModelService>();

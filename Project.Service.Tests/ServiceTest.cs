@@ -17,7 +17,7 @@ namespace Service.Tests
     public class ServiceTest
     {
     
-        Mock<IUnitOfWork> mockUnitOfWork = new Mock<IUnitOfWork>();
+        Mock<IModelRepository> modelRepository = new Mock<IModelRepository>();
     
    
         [Fact]
@@ -28,9 +28,9 @@ namespace Service.Tests
                new VehicleModel { Id = 2, MakeId = 1, Name = "X2", Abrv = "x2" },
                new VehicleModel {Id = 3, MakeId = 2, Name = "X1", Abrv = "x1" }
             };
-            mockUnitOfWork.Setup(x => x.ModelRepository.GetByIdAsync(It.IsAny<int>()))
+            modelRepository.Setup(x => x.GetByIdAsync(It.IsAny<int>()))
                 .ReturnsAsync((int id) => vehicleModelList.Where(v => v.Id == id).Single());
-            var vehicleModelService = new VehicleModelService(mockUnitOfWork.Object);
+            var vehicleModelService = new VehicleModelService(modelRepository.Object);
             var result = await vehicleModelService.GetById(2);
             result.ShouldBeEquivalentTo(vehicleModelList.First());
         }
@@ -39,9 +39,8 @@ namespace Service.Tests
         public async Task Create_Success()
         {
             var newVehicleModel = new VehicleModel { Id = 5, MakeId = 3, Name = "306", Abrv = "306" };
-            mockUnitOfWork.Setup(x => x.ModelRepository.InsertAsync(It.IsAny<VehicleModel>())).ReturnsAsync(1);
-            mockUnitOfWork.Setup(x => x.CommitAsync()).ReturnsAsync(1);
-            var vehicleModelService = new VehicleModelService(mockUnitOfWork.Object);
+            modelRepository.Setup(x => x.InsertAsync(It.IsAny<VehicleModel>())).ReturnsAsync(1);
+            var vehicleModelService = new VehicleModelService(modelRepository.Object);
             var result = await vehicleModelService.Create(newVehicleModel);
             result.ShouldBeEquivalentTo(1);
        
@@ -53,10 +52,9 @@ namespace Service.Tests
         {
             var vehicleModel = new VehicleModel { Id = 5, MakeId = 3, Name = "306", Abrv = "306" };
 
-            mockUnitOfWork.Setup(x => x.ModelRepository.DeleteAsync(It.IsAny<VehicleModel>()))
+            modelRepository.Setup(x => x.DeleteAsync(It.IsAny<VehicleModel>()))
                 .ReturnsAsync(1);
-            mockUnitOfWork.Setup(x => x.CommitAsync()).ReturnsAsync(1);
-            var vehicleModelService = new VehicleModelService(mockUnitOfWork.Object);
+            var vehicleModelService = new VehicleModelService(modelRepository.Object);
             var result = await vehicleModelService.Delete(vehicleModel);
             result.ShouldBeEquivalentTo(1);
         }
@@ -67,10 +65,9 @@ namespace Service.Tests
 
             
             var vehicleModel = new VehicleModel { Id = 5, MakeId = 3, Name = "306", Abrv = "306" };
-            mockUnitOfWork.Setup(x => x.ModelRepository.UpdateAsync(It.IsAny<VehicleModel>()))
+            modelRepository.Setup(x => x.UpdateAsync(It.IsAny<VehicleModel>()))
                 .ReturnsAsync(1);
-            mockUnitOfWork.Setup(x => x.CommitAsync()).ReturnsAsync(1);
-            var vehicleModelService = new VehicleModelService(mockUnitOfWork.Object);
+            var vehicleModelService = new VehicleModelService(modelRepository.Object);
             var result = await vehicleModelService.Update(vehicleModel);
             result.ShouldBeEquivalentTo(1);
         
@@ -92,10 +89,10 @@ namespace Service.Tests
              PageSize = 2,
              TotalCount = 2
              };
-            mockUnitOfWork.Setup(x => x.ModelRepository.GetPagedModel(filter))
+            modelRepository.Setup(x => x.GetPagedModel(filter))
                 .ReturnsAsync(new StaticPagedList<VehicleModel>(vehicleModelList,
                 filter.PageNumber, filter.PageSize, filter.TotalCount));
-            var vehicleModelService = new VehicleModelService(mockUnitOfWork.Object);
+            var vehicleModelService = new VehicleModelService(modelRepository.Object);
             var result = await vehicleModelService.PagedList(filter);
             result.Should().NotBeNull();
             result.PageNumber.ShouldBeEquivalentTo(1);

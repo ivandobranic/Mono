@@ -18,19 +18,19 @@ namespace MVC.Controllers
     public class VehicleModelAPIController : ApiController
     {
         IVehicleModelService vehiclemodelService;
-        
+        IFilter filter;
 
-        public VehicleModelAPIController(IVehicleModelService _vehiclemodelService)
+        public VehicleModelAPIController(IVehicleModelService _vehiclemodelService, IFilter _filter)
         {
             this.vehiclemodelService = _vehiclemodelService;
-            
+            this.filter = _filter;
         }
        
         [HttpGet]
         [Route("api/VehicleModelAPI")]
         public async Task<IHttpActionResult> Get(int? pageNumber = null, bool? isAscending = null, string search = null, int? pageSize = null)
         {
-            IFilter filter = new Filter();
+           
             try
             {
 

@@ -14,42 +14,42 @@ namespace Project.Service
     public class VehicleMakeService : IVehicleMakeService
     {
 
-        IUnitOfWork UnitOfWork;
-        public VehicleMakeService(IUnitOfWork _UnitOfWork)
+        IMakeRepository VehicleMakeRepository;
+        public VehicleMakeService(IMakeRepository vehicleMakeRepository)
         {
-            this.UnitOfWork = _UnitOfWork; 
+            this.VehicleMakeRepository = vehicleMakeRepository;
         }
 
 
         public async Task<VehicleMake> GetByIdAsync(int id)
         {
 
-            return await UnitOfWork.MakeRepository.GetByIdAsync(id);
+            return await VehicleMakeRepository.GetByIdAsync(id);
                
         }
 
         public async Task<int> CreateAsync(VehicleMake VehicleMake)
         {
-            await UnitOfWork.MakeRepository.InsertAsync(VehicleMake);
-            return await UnitOfWork.CommitAsync();
+            return await VehicleMakeRepository.InsertAsync(VehicleMake);
+         
         }
 
         public async Task<int> UpdateAsync(VehicleMake VehicleMake)
         {
             
-            await UnitOfWork.MakeRepository.UpdateAsync(VehicleMake);
-            return await UnitOfWork.CommitAsync();
+          return await VehicleMakeRepository.UpdateAsync(VehicleMake);
+            
         }
 
         public async Task<int> DeleteAsync(VehicleMake VehicleMake)
         {
-           await UnitOfWork.MakeRepository.DeleteAsync(VehicleMake);
-           return await UnitOfWork.CommitAsync();
+           return await VehicleMakeRepository.DeleteAsync(VehicleMake);
+           
         }
 
         public async Task<IPagedList<VehicleMake>> PagedList(IFilter filter)
         {
-            return await UnitOfWork.MakeRepository.GetPagedMake(filter);
+            return await VehicleMakeRepository.GetPagedMake(filter);
         }
     }
 }

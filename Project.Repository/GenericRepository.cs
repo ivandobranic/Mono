@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Threading.Tasks;
-using Project.Common.Logging;
 using Project.DAL;
 using Project.Repository.Common;
 
@@ -14,26 +12,29 @@ namespace Project.Repository
      where TEntity : class
     {
 
-        private readonly VehicleContext Context;
-        public GenericRepository(VehicleContext context)
+        private readonly VehicleContext context;
+        private DbSet<TEntity> entities;
+        public GenericRepository(VehicleContext _context)
         {
-            this.Context = context;
-          
+            this.context = _context;
+            entities = context.Set<TEntity>();
+
         }
+
 
         public IQueryable<TEntity> Get()
         {
-            return Context.Set<TEntity>().AsQueryable();
+            return entities;
         }
 
-        public async Task<TEntity> GetByIdAsync(int Id)
+        public async Task<TEntity> GetByIdAsync(int? Id)
         {
 
-            return await Context.Set<TEntity>().FindAsync(Id);
+            return await entities.FindAsync(Id);
 
         }
 
-        public Task<int> InsertAsync(TEntity entity)
+        public async Task<int> InsertAsync(TEntity entity)
         {
             try
             {
@@ -41,18 +42,9 @@ namespace Project.Repository
                 {
                     throw new ArgumentException("entity");
                 }
-
-                DbEntityEntry dbEntityEntry = Context.Entry(entity);
-                if (dbEntityEntry.State != EntityState.Detached)
-                {
-                    dbEntityEntry.State = EntityState.Added;
-                }
-                else
-                {
-                    Context.Set<TEntity>().Add(entity);
-                }
-                return Task.FromResult(1);
-
+                entities.Add(entity);
+               return await context.SaveChangesAsync();
+               
             }
             catch (DbEntityValidationException dbEx)
             {
@@ -73,7 +65,7 @@ namespace Project.Repository
 
         }
 
-        public Task<int> UpdateAsync(TEntity entity)
+        public async Task<int> UpdateAsync(TEntity entity)
         {
             try
             {
@@ -81,14 +73,8 @@ namespace Project.Repository
                 {
                     throw new ArgumentException("entity");
                 }
-              
-                DbEntityEntry dbEntityEntry = Context.Entry(entity);
-                if (dbEntityEntry.State != EntityState.Detached)
-                {
-                    Context.Set<TEntity>().Attach(entity);
-                }
-                dbEntityEntry.State = EntityState.Modified;
-                return Task.FromResult(1);
+                context.Entry(entity).State = EntityState.Modified;
+                return await context.SaveChangesAsync();
             }
             catch (DbEntityValidationException dbEx)
             {
@@ -107,7 +93,7 @@ namespace Project.Repository
             }
         }
 
-        public Task<int> DeleteAsync(TEntity entity)
+        public async Task<int> DeleteAsync(TEntity entity)
         {
             try
             {
@@ -115,17 +101,8 @@ namespace Project.Repository
                 {
                     throw new ArgumentNullException("entity");
                 }
-                DbEntityEntry dbEntityEntry = Context.Entry(entity);
-                if (dbEntityEntry.State != EntityState.Deleted)
-                {
-                    dbEntityEntry.State = EntityState.Deleted;
-                }
-                else
-                {
-                    Context.Set<TEntity>().Attach(entity);
-                    Context.Set<TEntity>().Remove(entity);
-                }
-                return Task.FromResult(1);
+                context.Entry(entity).State = EntityState.Deleted;
+                return await context.SaveChangesAsync();
             }
             catch (DbEntityValidationException dbEx)
             {
@@ -143,7 +120,5 @@ namespace Project.Repository
                 throw fail;
             }
         }
-
-         
     }
 }

@@ -50,8 +50,8 @@ namespace Project.Repository.Tests
             var mockSet = new Mock<DbSet<VehicleModel>>();
             var mockContext = new Mock<VehicleContext>();
             mockContext.Setup(x => x.Set<VehicleModel>()).Returns(mockSet.Object);
-            var UnitOfWork = new Mock<UnitOfWork>(mockContext.Object);
-            var insertResult = await UnitOfWork.Object.ModelRepository.InsertAsync(vehicleModel);
+            var modelRepository = new GenericRepository<VehicleModel>(mockContext.Object);
+            var insertResult = await modelRepository.InsertAsync(vehicleModel);
             insertResult.ShouldBeEquivalentTo(1);
 
 
@@ -88,8 +88,8 @@ namespace Project.Repository.Tests
             mockContext.Setup(x => x.VehicleModel).Returns(mockSet.Object);
             mockContext.Setup(x => x.Set<VehicleModel>()).Returns(mockSet.Object);
             var result = await mockContext.Object.VehicleModel.FindAsync((2));
-            var UnitOfWork = new Mock<UnitOfWork>(mockContext.Object);
-            var repositoryResult = await UnitOfWork.Object.ModelRepository.GetByIdAsync(2);
+            var modelrepository = new GenericRepository<VehicleModel>(mockContext.Object);
+            var repositoryResult = await modelrepository.GetByIdAsync(2);
             repositoryResult.ShouldBeEquivalentTo(result);
 
         }
@@ -105,8 +105,8 @@ namespace Project.Repository.Tests
             mockContext.Setup(x => x.VehicleModel).Returns(mockSet.Object);
             mockContext.Setup(x => x.Set<VehicleModel>()).Returns(mockSet.Object);
             var result = await mockContext.Object.VehicleModel.FindAsync((5));
-            var UnitOfWork = new Mock<UnitOfWork>(mockContext.Object);
-            var repositoryResult = await UnitOfWork.Object.ModelRepository.GetByIdAsync(5);
+            var modelrepository = new GenericRepository<VehicleModel>(mockContext.Object);
+            var repositoryResult = await modelrepository.GetByIdAsync(5);
             repositoryResult.ShouldBeEquivalentTo(null);
 
         }
@@ -120,8 +120,8 @@ namespace Project.Repository.Tests
             var mockContext = new Mock<VehicleContext>();
             var mockSet = new Mock<DbSet<VehicleModel>>();
             mockContext.Setup(x => x.VehicleModel).Returns(mockSet.Object);
-            var UnitOfWork = new Mock<UnitOfWork>(mockContext.Object);
-            var deleteResult = await UnitOfWork.Object.ModelRepository.DeleteAsync(vehicleModel);
+            var modelrepository = new GenericRepository<VehicleModel>(mockContext.Object);
+            var deleteResult = await modelrepository.DeleteAsync(vehicleModel);
             deleteResult.ShouldBeEquivalentTo(1);
 
         }
@@ -136,8 +136,8 @@ namespace Project.Repository.Tests
             var mockContext = new Mock<VehicleContext>();
             var mockSet = new Mock<DbSet<VehicleModel>>();
             mockContext.Setup(x => x.VehicleModel).Returns(mockSet.Object);
-            var UnitOfWork = new Mock<UnitOfWork>(mockContext.Object);
-            var updateResult = await UnitOfWork.Object.ModelRepository.UpdateAsync(vehicleModel);
+            var modelrepository = new GenericRepository<VehicleModel>(mockContext.Object);
+            var updateResult = await modelrepository.UpdateAsync(vehicleModel);
             updateResult.ShouldBeEquivalentTo(1);
                  
         }
