@@ -9,6 +9,8 @@ using AutoMapper;
 using MVC.Models;
 using Project.Common.Logging;
 using Project.Model;
+using Project.Repository;
+using Project.Repository.Common;
 using Project.Service.Common;
 
 namespace MVC.Controllers
@@ -16,39 +18,40 @@ namespace MVC.Controllers
     public class VehicleModelAPIController : ApiController
     {
         IVehicleModelService vehiclemodelService;
-        IErrorLogger errorlogger;
+        
 
-        public VehicleModelAPIController(IVehicleModelService _vehiclemodelService, IErrorLogger _errorlogger)
+        public VehicleModelAPIController(IVehicleModelService _vehiclemodelService)
         {
             this.vehiclemodelService = _vehiclemodelService;
-            this.errorlogger = _errorlogger;
+            
         }
        
         [HttpGet]
-        [Route("api/VehicleModelAPI/{pageNumber?}/{sortOrder?}/{search?}")]
-        public async Task<IHttpActionResult> Get(int? pageNumber = null, string sortOrder = null, string search = null, int? pageSize = null)
+        [Route("api/VehicleModelAPI")]
+        public async Task<IHttpActionResult> Get(int? pageNumber = null, bool? isAscending = null, string search = null, int? pageSize = null)
         {
+            IFilter filter = new Filter();
             try
             {
-                int totalRowCount = await vehiclemodelService.GetVehicleModelCount(search);
-                List<VehicleModel> pagedList = await vehiclemodelService.PagedList(sortOrder, search, pageNumber ?? 1, pageSize ?? 3);
-                var newModel = new
-                {
-                    Model = pagedList,
-                    TotalCount = totalRowCount
-                };
-                return Ok(newModel);
+
+                filter.PageNumber = pageNumber ?? 1;
+                filter.PageSize = 3;
+                filter.Search = search;
+                filter.IsAscending = isAscending ?? false;
+
+
+                var pagedList = await vehiclemodelService.PagedList(filter);
+                return Ok(pagedList);
             }
             catch (Exception ex)
             {
-                errorlogger.LogError(ex);
                 return BadRequest(ex.Message);
             }
 
         }
         
         [HttpGet]
-        [Route("api/VehicleModelAPI/{id?}")]
+        [Route("api/VehicleModelAPI")]
         public async Task<IHttpActionResult> Get(int id)
         {
             try
@@ -69,14 +72,14 @@ namespace MVC.Controllers
 
         }
         [HttpPost]
-        [Route("api/VehicleModelAPI/{model?}")]
+        [Route("api/VehicleModelAPI", Name = "VehicleModelRoute")]
         public async Task<IHttpActionResult> Post([FromBody] VehicleModel model)
         {
             try
             {
-                var result = await vehiclemodelService.Create(model);
-                var message = Created("entity created", result);
-                return message;
+                await vehiclemodelService.Create(model);
+                return CreatedAtRoute("VehicleModelRoute", new { Id = model.Id }, model);
+                
 
             }
             catch (Exception ex)
@@ -87,7 +90,7 @@ namespace MVC.Controllers
         }
 
         [HttpPut]
-        [Route("api/VehicleModelAPI/{model?}")]
+        [Route("api/VehicleModelAPI")]
         public async Task<IHttpActionResult> Put([FromBody] VehicleModel model)
         {
             try
@@ -113,7 +116,7 @@ namespace MVC.Controllers
         }
 
         [HttpDelete]
-        [Route("api/VehicleModelAPI/{model?}")]
+        [Route("api/VehicleModelAPI")]
         public async Task<IHttpActionResult> Delete([FromBody] VehicleModel model)
         {
             try

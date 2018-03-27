@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using PagedList;
-using Project.DAL;
 using Project.Model;
 using Project.Repository.Common;
 
@@ -14,20 +10,43 @@ namespace Project.Repository
     public class VehicleModelRepository : IModelRepository
     {
 
-        private readonly VehicleContext context;
-        private readonly IRepository<VehicleModel> repository;
-        public VehicleModelRepository(VehicleContext _context, IRepository<VehicleModel> _repository)
+       
+        private readonly IRepository<VehicleModel> Repository;
+        public VehicleModelRepository(IRepository<VehicleModel> _Repository)
         {
-            this.repository = _repository;
-            this.context = _context;
+            this.Repository =_Repository;
+            
         }
 
+        public async Task<VehicleModel> GetByIdAsync(int Id)
+        {
+
+            return await Repository.GetByIdAsync(Id);
+        }
+
+        public Task<int> InsertAsync(VehicleModel entity)
+        {
+
+            return Repository.InsertAsync(entity);
+
+        }
+
+        public Task<int> UpdateAsync(VehicleModel entity)
+        {
+            return Repository.UpdateAsync(entity);
+        }
+
+        public Task<int> DeleteAsync(VehicleModel entity)
+        {
+
+            return Repository.DeleteAsync(entity);
+        }
 
         public async Task<IPagedList<VehicleModel>> GetPagedModel(IFilter filter)
         {
-            var query = context.Set<VehicleModel>().AsQueryable();
+            var query = Repository.Get();
             query = filter.IsAscending == false ? query.OrderByDescending(x => x.Name) : query.OrderBy(x => x.Name);
-            if (filter.Search != null)
+            if (!string.IsNullOrEmpty(filter.Search))
             {
                 filter.TotalCount = await query.Where(x => x.Name == filter.Search).CountAsync();
                 query = query.Where(x => x.Name == filter.Search).Skip((filter.PageNumber - 1) * filter.PageSize).Take(filter.PageSize);

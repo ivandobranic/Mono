@@ -10,7 +10,6 @@ app.controller("vehiclemakeController", function ($http, $stateParams, $state, $
     //get
     vm.vehiclemakedata = [];
     vm.pageNumber = 1;
-    vm.totalcount = 0;
     vm.pageSize = 3;
     vm.isAcending = false;
     vm.filter = "";

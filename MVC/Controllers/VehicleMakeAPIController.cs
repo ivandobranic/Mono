@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Http;
+using PagedList;
 using Project.Common.Caching;
 using Project.Common.Logging;
 using Project.Model;
@@ -21,11 +22,11 @@ namespace MVC.Controllers
         IFilter filter;
         private readonly string[] MasterCacheKeyArray = { "VehicleMakeCache" };
         public VehicleMakeAPIController(IVehicleMakeService _vehiclemakeService, 
-            ICaching _caching, IErrorLogger _logError, IFilter _filter)
+            ICaching _caching, IFilter _filter)
         {
             this.vehiclemakeService = _vehiclemakeService;
             this.caching = _caching;
-            this.logError = _logError;
+            this.logError = ErrorLogger.GetInstance;
             this.filter = _filter;
         }
 
@@ -43,7 +44,7 @@ namespace MVC.Controllers
               
                
                 var pagedList = await vehiclemakeService.PagedList(filter);
-                
+
                 var newModel = new
                 {
                     Model = pagedList.ToList(),
@@ -91,15 +92,15 @@ namespace MVC.Controllers
         }
 
         [HttpPost]
-        [Route("api/VehicleMakeAPI")]
+        [Route("api/VehicleMakeAPI", Name = "VehicleMakeRoute")]
         public async Task<IHttpActionResult> Post([FromBody]VehicleMake model)
         {
             try
             {
                 caching.InvalidateCache(MasterCacheKeyArray);
-                var result = await vehiclemakeService.CreateAsync(model);
-                var message = Created("entity created", result);
-                return message;
+                await vehiclemakeService.CreateAsync(model);
+                return CreatedAtRoute("VehicleMakeRoute", new { Id = model.Id }, model);
+         
             }
             catch (Exception ex)
             {

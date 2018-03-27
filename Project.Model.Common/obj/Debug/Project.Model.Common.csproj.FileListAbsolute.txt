@@ -6,3 +6,4 @@ C:\Users\ivand\Source\Repos\MonoProject\Project.Model.Common\bin\Debug\Project.M
 C:\Users\ivand\Source\Repos\MonoProject\Project.Model.Common\bin\Debug\Project.Model.Common.pdb
 C:\Users\ivand\Source\Repos\MonoProject\Project.Model.Common\obj\Debug\Project.Model.Common.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.Model.Common\obj\Debug\Project.Model.Common.pdb
+C:\Users\ivand\Source\Repos\MonoProject\Project.Model.Common\obj\Debug\Project.Model.Common.csprojResolveAssemblyReference.cache

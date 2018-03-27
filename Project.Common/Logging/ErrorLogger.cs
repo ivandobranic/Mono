@@ -7,6 +7,18 @@ namespace Project.Common.Logging
 {
     public class ErrorLogger: IErrorLogger
     {
+        private ErrorLogger()
+        {
+
+        }
+        private static readonly Lazy<ErrorLogger> instance = new Lazy<ErrorLogger>(() => new ErrorLogger());
+        public static ErrorLogger GetInstance
+        {
+            get
+            {
+                return instance.Value;
+            }
+        }
         public void LogError(Exception ex)
         {
 

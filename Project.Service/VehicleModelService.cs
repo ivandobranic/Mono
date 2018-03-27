@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PagedList;
 using Project.Model;
 using Project.Repository.Common;
 using Project.Service.Common;
@@ -12,72 +13,41 @@ namespace Project.Service
 {
     public class VehicleModelService : IVehicleModelService
     {
-        IRepository<VehicleModel> modelRepository;
-        public VehicleModelService(IRepository<VehicleModel> _modelRepository)
+        IUnitOfWork UnitOfWork;
+        public VehicleModelService(IUnitOfWork _UnitOfWork)
         {
-            this.modelRepository = _modelRepository;
+            this.UnitOfWork = _UnitOfWork;
         }
 
 
         public async Task<VehicleModel> GetById(int id)
         {
-            return await modelRepository.GetByIdAsync(id);
+            return await UnitOfWork.ModelRepository.GetByIdAsync(id);
         }
 
         public async Task<int> Create(VehicleModel vehicleModel)
         {
-            return await modelRepository.InsertAsync(vehicleModel);
+            await UnitOfWork.ModelRepository.InsertAsync(vehicleModel);
+            return await UnitOfWork.CommitAsync();
         }
 
         public async Task<int> Update(VehicleModel vehicleModel)
         {
-           return await modelRepository.UpdateAsync(vehicleModel);
+           await UnitOfWork.ModelRepository.UpdateAsync(vehicleModel);
+           return await UnitOfWork.CommitAsync();
         }
 
         public async Task<int> Delete(VehicleModel vehicleModel)
         {
-           return await modelRepository.DeleteAsync(vehicleModel);
+           await UnitOfWork.ModelRepository.DeleteAsync(vehicleModel);
+           return await UnitOfWork.CommitAsync();
         }
 
-        public async Task<int> GetVehicleModelCount(string search)
+
+
+        public async Task<IPagedList<VehicleModel>> PagedList(IFilter filter)
         {
-            
-            if (search != null)
-            {
-                return await modelRepository.Get().Where(x => x.Name == search).CountAsync();
-            }
-            else
-            {
-                return await modelRepository.Get().CountAsync();
-            }
-
-        }
-
-        public async Task<IEnumerable<VehicleModel>> Sorting(string sortOrder)
-        {
-            var query = modelRepository.Get();
-            query = sortOrder == "name_desc" ? query.OrderByDescending(x => x.Name) : query.OrderBy(x => x.Name);
-            return await query.ToListAsync();
-        }
-
-        public async Task<IEnumerable<VehicleModel>> Filtering(string search)
-        {
-            return await modelRepository.Get().Where(x => x.Name.ToLower() == search.ToLower()).ToListAsync();
-        }
-
-        public async Task<List<VehicleModel>> PagedList(string sortOrder, string search, int pageNumber, int pageSize)
-        {
-
-            var query = modelRepository.Get();
-            query = sortOrder == "name_desc" ? query.OrderByDescending(x => x.Name) : query.OrderBy(x => x.Name);
-            if (search != null)
-            {
-                return await query.Where(x => x.Name.ToLower() == search.ToLower()).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
-            }
-            else
-            {
-                return await query.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
-            }
+            return await UnitOfWork.ModelRepository.GetPagedModel(filter);
         }
     }
 }

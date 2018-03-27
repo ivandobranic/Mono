@@ -14,24 +14,22 @@ namespace Project.Repository
      where TEntity : class
     {
 
-        private readonly VehicleContext context;
-        private DbSet<TEntity> entities;
-        public GenericRepository(VehicleContext _context)
+        private readonly VehicleContext Context;
+        public GenericRepository(VehicleContext context)
         {
-            this.context = _context;
-            entities = context.Set<TEntity>();
-
+            this.Context = context;
+          
         }
 
         public IQueryable<TEntity> Get()
         {
-            return entities;
+            return Context.Set<TEntity>().AsQueryable();
         }
 
         public async Task<TEntity> GetByIdAsync(int Id)
         {
 
-            return await entities.FindAsync(Id);
+            return await Context.Set<TEntity>().FindAsync(Id);
 
         }
 
@@ -44,14 +42,14 @@ namespace Project.Repository
                     throw new ArgumentException("entity");
                 }
 
-                DbEntityEntry dbEntityEntry = context.Entry(entity);
+                DbEntityEntry dbEntityEntry = Context.Entry(entity);
                 if (dbEntityEntry.State != EntityState.Detached)
                 {
                     dbEntityEntry.State = EntityState.Added;
                 }
                 else
                 {
-                    entities.Add(entity);
+                    Context.Set<TEntity>().Add(entity);
                 }
                 return Task.FromResult(1);
 
@@ -84,10 +82,10 @@ namespace Project.Repository
                     throw new ArgumentException("entity");
                 }
               
-                DbEntityEntry dbEntityEntry = context.Entry(entity);
+                DbEntityEntry dbEntityEntry = Context.Entry(entity);
                 if (dbEntityEntry.State != EntityState.Detached)
                 {
-                    entities.Attach(entity);
+                    Context.Set<TEntity>().Attach(entity);
                 }
                 dbEntityEntry.State = EntityState.Modified;
                 return Task.FromResult(1);
@@ -117,15 +115,15 @@ namespace Project.Repository
                 {
                     throw new ArgumentNullException("entity");
                 }
-                DbEntityEntry dbEntityEntry = context.Entry(entity);
+                DbEntityEntry dbEntityEntry = Context.Entry(entity);
                 if (dbEntityEntry.State != EntityState.Deleted)
                 {
                     dbEntityEntry.State = EntityState.Deleted;
                 }
                 else
                 {
-                    entities.Attach(entity);
-                    entities.Remove(entity);
+                    Context.Set<TEntity>().Attach(entity);
+                    Context.Set<TEntity>().Remove(entity);
                 }
                 return Task.FromResult(1);
             }

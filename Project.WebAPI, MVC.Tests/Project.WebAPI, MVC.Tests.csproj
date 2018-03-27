@@ -51,6 +51,10 @@
       <HintPath>..\..\..\..\..\..\nuget data\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\..\nuget data\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -124,6 +128,10 @@
     <ProjectReference Include="..\Project.Repository.Common\Project.Repository.Common.csproj">
       <Project>{834C333F-83E2-4004-B1D8-876F82BB889E}</Project>
       <Name>Project.Repository.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.Repository\Project.Repository.csproj">
+      <Project>{BCD52679-BCB3-457F-BFE9-684F9C2C4890}</Project>
+      <Name>Project.Repository</Name>
     </ProjectReference>
     <ProjectReference Include="..\Project.Service.Common\Project.Service.Common.csproj">
       <Project>{A2CBEB16-8BDE-4863-9BEE-86EAA9CF3D0A}</Project>

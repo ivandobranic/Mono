@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Transactions;
 using Project.DAL;
 using Project.Model;
@@ -15,16 +9,15 @@ namespace Project.Repository
     public class UnitOfWork : IUnitOfWork
     {
         private readonly VehicleContext Context;
-        private IRepository<VehicleMake> VehicleMakeRepository;
-        private IRepository<VehicleModel> VehicleModelRepository;
-        public UnitOfWork(VehicleContext context, IRepository<VehicleMake> vehicleMakeRepository,
-            IRepository<VehicleModel> vehicleModelRepository)
+        private IRepository<VehicleMake> makeRepository;
+        private IRepository<VehicleModel> modelRepository;
+        public UnitOfWork(VehicleContext context)
         {
             this.Context = context;
-            this.VehicleMakeRepository = vehicleMakeRepository;
-            this.VehicleModelRepository = vehicleModelRepository;
-            MakeRepository = new VehicleMakeRepository(Context, VehicleMakeRepository);
-            ModelRepository = new VehicleModelRepository(Context, VehicleModelRepository);
+            this.makeRepository = new GenericRepository<VehicleMake>(Context);
+            this.modelRepository = new GenericRepository<VehicleModel>(Context);
+            MakeRepository = new VehicleMakeRepository(makeRepository);
+            ModelRepository = new VehicleModelRepository(modelRepository);
 
         }
 

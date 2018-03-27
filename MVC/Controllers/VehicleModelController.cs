@@ -20,30 +20,34 @@ namespace MVC.Controllers
         IVehicleModelService vehicleModelService;
         IRepository<VehicleMake> makeRepository;
         IRepository<VehicleModel> modelRepository;
+        IFilter filter;
         public VehicleModelController(IVehicleModelService _vehicleModelService, 
-            IRepository<VehicleMake> _makeRepository, IRepository<VehicleModel> _modelRepository)
+            IRepository<VehicleMake> _makeRepository, IRepository<VehicleModel> _modelRepository,
+            IFilter _filter)
         {
             this.vehicleModelService = _vehicleModelService;
             this.makeRepository = _makeRepository;
             this.modelRepository = _modelRepository;
+            this.filter = _filter;
         }
         [HttpGet]
-        public async Task<ActionResult> Index(string sortOrder, string search, int? pageNumber)
+        public async Task<ActionResult> Index(string search, int? pageNumber, bool isAscending = false)
         {
-            int rowCount = await vehicleModelService.GetVehicleModelCount(search);
+            filter.Search = search;
+            filter.IsAscending = isAscending;
+            filter.PageNumber = pageNumber ?? 1;
+            filter.PageSize = 3;
 
             List<VehicleModelViewModel> model = new List<VehicleModelViewModel>();
-            List<VehicleModel> pagedList = await vehicleModelService.PagedList(sortOrder, search, pageNumber ?? 1, 5);
-
-            ViewBag.sortOrder = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-
-            model = Mapper.Map<List<VehicleModel>, List<VehicleModelViewModel>>(pagedList);
+            var pagedList = await vehicleModelService.PagedList(filter);
+            var newPagedList = pagedList.ToList();
+            ViewBag.sortOrder = isAscending ? false : true;
+            model = Mapper.Map<List<VehicleModel>, List<VehicleModelViewModel>>(newPagedList);
             Mapper.AssertConfigurationIsValid();
-            var paged = new StaticPagedList<VehicleModelViewModel>(model, pageNumber ?? 1, 5, rowCount);
+            var paged = new StaticPagedList<VehicleModelViewModel>(model, pageNumber ?? 1, 3, filter.TotalCount);
             return View(paged);
 
         }
-
 
         [HttpGet]
         public ActionResult Create()

@@ -27,8 +27,8 @@ app.controller("vehicleModelController", function ($http, $stateParams, $state, 
     vm.getPaged = function (newPageNumber) {
         var GetVehicleModel = modelService.getPagedList(newPageNumber, vm.sorting, vm.filter);
         GetVehicleModel.then(function (response) {
-            vm.vehicleModelData = response.data.Model;
-            vm.totalCount = response.data.TotalCount;
+            vm.vehicleModelData = response.data;
+            vm.totalCount = response.data.TotalItemCount;
             $log.info(response);
         }, function (reason) {
             vm.error = reason.data;

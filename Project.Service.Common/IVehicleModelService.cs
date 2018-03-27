@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PagedList;
 using Project.Model;
+using Project.Repository.Common;
 
 namespace Project.Service.Common
 {
@@ -13,9 +15,6 @@ namespace Project.Service.Common
         Task<int> Create(VehicleModel vehicleModel);
         Task<int> Update(VehicleModel vehicleModel);
         Task<int> Delete(VehicleModel vehicleModel);
-        Task<int> GetVehicleModelCount(string search);
-        Task<IEnumerable<VehicleModel>> Sorting(string sortOrder);
-        Task<IEnumerable<VehicleModel>> Filtering(string search);
-        Task<List<VehicleModel>> PagedList(string sortOrder, string search, int pageNumber, int pageSize);
+        Task<IPagedList<VehicleModel>> PagedList(IFilter filter);
     }
 }

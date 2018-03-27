@@ -78,7 +78,6 @@ namespace MVC.App_Start
             kernel.Bind<IVehicleMakeService>().To<VehicleMakeService>();
             kernel.Bind<IVehicleModelService>().To<VehicleModelService>();
             kernel.Bind<ICaching>().To<Caching>();
-            kernel.Bind<IErrorLogger>().To<ErrorLogger>();
             kernel.Bind<IFilter>().To<Filter>();
             
 

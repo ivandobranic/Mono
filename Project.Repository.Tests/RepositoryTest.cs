@@ -9,6 +9,7 @@ using FluentAssertions;
 using Moq;
 using Project.DAL;
 using Project.Model;
+using Project.Repository.Common;
 using Xunit;
 
 namespace Project.Repository.Tests
@@ -42,25 +43,24 @@ namespace Project.Repository.Tests
         }
 
         [Fact]
-        public async Task CreateVehicleModel()
+        public async Task CreateVehicleModel_Success()
         {
             
             
             var mockSet = new Mock<DbSet<VehicleModel>>();
             var mockContext = new Mock<VehicleContext>();
             mockContext.Setup(x => x.Set<VehicleModel>()).Returns(mockSet.Object);
-            var modelrepository = new GenericRepository<VehicleModel>(mockContext.Object);
-            var repositoryResult = await modelrepository.InsertAsync(vehicleModel);
-            mockSet.Verify(x => x.Add(vehicleModel), Times.Once());
-            mockContext.Verify(x => x.SaveChangesAsync(), Times.Once());
-            vehicleModel.ShouldBeEquivalentTo(repositoryResult);
+            var UnitOfWork = new Mock<UnitOfWork>(mockContext.Object);
+            var insertResult = await UnitOfWork.Object.ModelRepository.InsertAsync(vehicleModel);
+            insertResult.ShouldBeEquivalentTo(1);
+
 
         }
 
      
  
         [Fact]
-        public void GetAll()
+        public void GetAll_Success()
         {
            
             
@@ -88,8 +88,8 @@ namespace Project.Repository.Tests
             mockContext.Setup(x => x.VehicleModel).Returns(mockSet.Object);
             mockContext.Setup(x => x.Set<VehicleModel>()).Returns(mockSet.Object);
             var result = await mockContext.Object.VehicleModel.FindAsync((2));
-            var modelrepository = new GenericRepository<VehicleModel>(mockContext.Object);
-            var repositoryResult = await modelrepository.GetByIdAsync(2);
+            var UnitOfWork = new Mock<UnitOfWork>(mockContext.Object);
+            var repositoryResult = await UnitOfWork.Object.ModelRepository.GetByIdAsync(2);
             repositoryResult.ShouldBeEquivalentTo(result);
 
         }
@@ -105,8 +105,8 @@ namespace Project.Repository.Tests
             mockContext.Setup(x => x.VehicleModel).Returns(mockSet.Object);
             mockContext.Setup(x => x.Set<VehicleModel>()).Returns(mockSet.Object);
             var result = await mockContext.Object.VehicleModel.FindAsync((5));
-            var modelrepository = new GenericRepository<VehicleModel>(mockContext.Object);
-            var repositoryResult = await modelrepository.GetByIdAsync(5);
+            var UnitOfWork = new Mock<UnitOfWork>(mockContext.Object);
+            var repositoryResult = await UnitOfWork.Object.ModelRepository.GetByIdAsync(5);
             repositoryResult.ShouldBeEquivalentTo(null);
 
         }
@@ -117,14 +117,12 @@ namespace Project.Repository.Tests
         {
 
 
-
             var mockContext = new Mock<VehicleContext>();
             var mockSet = new Mock<DbSet<VehicleModel>>();
             mockContext.Setup(x => x.VehicleModel).Returns(mockSet.Object);
-            var modelrepository = new Mock<GenericRepository<VehicleModel>>(mockContext.Object);
-            modelrepository.Setup(x => x.DeleteAsync(vehicleModel));
-            var result = await modelrepository.Object.DeleteAsync(vehicleModel);
-    
+            var UnitOfWork = new Mock<UnitOfWork>(mockContext.Object);
+            var deleteResult = await UnitOfWork.Object.ModelRepository.DeleteAsync(vehicleModel);
+            deleteResult.ShouldBeEquivalentTo(1);
 
         }
 
@@ -138,11 +136,10 @@ namespace Project.Repository.Tests
             var mockContext = new Mock<VehicleContext>();
             var mockSet = new Mock<DbSet<VehicleModel>>();
             mockContext.Setup(x => x.VehicleModel).Returns(mockSet.Object);
-            var modelrepository = new Mock<GenericRepository<VehicleModel>>(mockContext.Object);
-            modelrepository.Setup(x => x.DeleteAsync(vehicleModel));
-            var result = await modelrepository.Object.UpdateAsync(vehicleModel);
-            
-           
+            var UnitOfWork = new Mock<UnitOfWork>(mockContext.Object);
+            var updateResult = await UnitOfWork.Object.ModelRepository.UpdateAsync(vehicleModel);
+            updateResult.ShouldBeEquivalentTo(1);
+                 
         }
     }
 }
