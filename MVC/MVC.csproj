@@ -304,6 +304,14 @@
       <Project>{5caa7342-aa8f-4a63-8d06-39fea08e4ab0}</Project>
       <Name>Project.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Project.DAL\Project.DAL.csproj">
+      <Project>{193A8E2B-126C-4B93-ADA6-6E0FCF93EB0B}</Project>
+      <Name>Project.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.Model.Common\Project.Model.Common.csproj">
+      <Project>{C5EAC808-387D-448F-9613-CDEF37A4B780}</Project>
+      <Name>Project.Model.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Project.Model\Project.Model.csproj">
       <Project>{4DB9B415-3B90-4296-956A-5BCA57B3AF2C}</Project>
       <Name>Project.Model</Name>

@@ -19,15 +19,14 @@ namespace Project.WebAPI__MVC.Tests
 {
     public class WebAPITest
     {
-     
+
         VehicleModel model = new VehicleModel { Id = 2, MakeId = 2, Name = "Test", Abrv = "test" };
         Mock<IVehicleModelService> mockService = new Mock<IVehicleModelService>();
-       IFilter filter = new Filter
+        IFilter filter = new Filter
         {
             Search = null,
             IsAscending = false,
             PageNumber = 1,
-            PageSize = 2,
             TotalCount = 2
         };
         [Fact]
@@ -38,7 +37,7 @@ namespace Project.WebAPI__MVC.Tests
                new VehicleModel{ Id = 2, MakeId = 1, Name = "AA", Abrv = "2" },
                new VehicleModel {Id = 3, MakeId = 2, Name = "BB", Abrv = "x1" }
             };
-        
+
             mockService.Setup(x => x.PagedList(filter))
             .ReturnsAsync(new StaticPagedList<VehicleModel>(vehicleModelList, 1,
              2, 2));
@@ -62,8 +61,8 @@ namespace Project.WebAPI__MVC.Tests
             contentResult.Should().NotBeNull();
             contentResult.Content.Id.Should().Be(2);
             Assert.NotNull(contentResult.Content);
-          
-            
+
+
         }
 
 
@@ -77,9 +76,9 @@ namespace Project.WebAPI__MVC.Tests
 
         }
         [Fact]
-        public async Task Post ()
+        public async Task Post()
         {
-          
+
             var controller = new VehicleModelAPIController(mockService.Object, filter);
 
             IHttpActionResult actionResult = await controller.Post(model);
@@ -93,7 +92,7 @@ namespace Project.WebAPI__MVC.Tests
         [Fact]
         public async Task Put_Success()
         {
-         
+
             var controller = new VehicleModelAPIController(mockService.Object, filter);
 
             IHttpActionResult actionResult = await controller.Put(model);
@@ -117,28 +116,21 @@ namespace Project.WebAPI__MVC.Tests
 
             contentResult.Should().BeNull();
             actionResult.Should().BeOfType(typeof(NotFoundResult));
-           
+
 
         }
 
         [Fact]
         public async Task Delete_Succes()
         {
-           
+
             var controller = new VehicleModelAPIController(mockService.Object, filter);
 
-            IHttpActionResult actionResult = await controller.Delete(model);
+            IHttpActionResult actionResult = await controller.Delete(model.Id);
             actionResult.Should().BeOfType(typeof(OkResult));
         }
-        [Fact]
-        public async Task Delete_Fail()
-        {
-            var controller = new VehicleModelAPIController(mockService.Object, filter);
-
-            IHttpActionResult actionResult = await controller.Delete(null);
-            actionResult.Should().BeOfType(typeof(NotFoundResult));
-        }
+     
     }
 
- }
+}
 

@@ -7,6 +7,7 @@ using PagedList;
 using Project.Common.Caching;
 using Project.Common.Logging;
 using Project.Model;
+using Project.Model.Common;
 using Project.Repository;
 using Project.Repository.Common;
 using Project.Service.Common;
@@ -16,46 +17,47 @@ namespace MVC.Controllers
 
     public class VehicleMakeAPIController : ApiController
     {
-        IVehicleMakeService vehiclemakeService;
-        ICaching caching;
-        IErrorLogger logError;
-        IFilter filter;
+        IVehicleMakeService VehicleMakeService;
+        ICaching Caching;
+        IErrorLogger LogError;
+        IFilter Filter;
         private readonly string[] MasterCacheKeyArray = { "VehicleMakeCache" };
-        public VehicleMakeAPIController(IVehicleMakeService _vehiclemakeService, 
-            ICaching _caching, IFilter _filter)
+        public VehicleMakeAPIController(IVehicleMakeService vehicleMakeService, 
+            ICaching caching, IFilter filter)
         {
-            this.vehiclemakeService = _vehiclemakeService;
-            this.caching = _caching;
-            this.logError = ErrorLogger.GetInstance;
-            this.filter = _filter;
+            this.VehicleMakeService = vehicleMakeService;
+            this.Caching = caching;
+            this.LogError = ErrorLogger.GetInstance;
+            this.Filter = filter;
         }
 
         [HttpGet]
         [Route("api/VehicleMakeAPI")]
-        public async Task<IHttpActionResult> Get(int? pageNumber = null, bool? isAscending = null, string search = null)
+        public async Task<IHttpActionResult> Get(int? pageNumber = null, bool isAscending = false, string search = null)
         {
             try
             {
 
-                filter.PageNumber = pageNumber ?? 1;
-                filter.PageSize = 3;
-                filter.Search = search;
-                filter.IsAscending = isAscending ?? false;
-              
-               
-                var pagedList = await vehiclemakeService.PagedList(filter);
+                Filter.PageNumber = pageNumber ?? 1;
+                Filter.Search = search;
+                Filter.IsAscending = isAscending;
+
+                var pagedList = await VehicleMakeService.PagedList(Filter);
 
                 var newModel = new
                 {
                     Model = pagedList.ToList(),
-                    TotalCount = pagedList.TotalItemCount
+                    PageNumber = pagedList.PageNumber,
+                    PageSize = pagedList.PageSize,
+                    TotalCount = pagedList.TotalItemCount,
+                    isAscending = Filter.IsAscending
                 };
 
                 return Ok(newModel);
             }
             catch(Exception ex)
             {
-                logError.LogError(ex);
+                LogError.LogError(ex);
                 return BadRequest(ex.Message);
             }
 
@@ -71,21 +73,21 @@ namespace MVC.Controllers
             try
             {
                 string rawKey = "CacheById";
-                VehicleMake vehicleMake = caching.GetCacheItem(rawKey, MasterCacheKeyArray) as VehicleMake;
+                IVehicleMake vehicleMake = Caching.GetCacheItem(rawKey, MasterCacheKeyArray) as IVehicleMake;
                 if (vehicleMake == null)
                 {
-                    vehicleMake = await vehiclemakeService.GetByIdAsync(id);
+                    vehicleMake = await VehicleMakeService.GetByIdAsync(id);
                     if (vehicleMake == null)
                     {
                         return NotFound();
                     }
-                 caching.AddCacheItem(rawKey, vehicleMake, MasterCacheKeyArray);
+                 Caching.AddCacheItem(rawKey, vehicleMake, MasterCacheKeyArray);
                 }
                 return Ok(vehicleMake);
             }
             catch (Exception ex)
             {
-                logError.LogError(ex);
+                LogError.LogError(ex);
                 return BadRequest(ex.Message);
             }
 
@@ -97,14 +99,14 @@ namespace MVC.Controllers
         {
             try
             {
-                caching.InvalidateCache(MasterCacheKeyArray);
-                await vehiclemakeService.CreateAsync(model);
+                Caching.InvalidateCache(MasterCacheKeyArray);
+                await VehicleMakeService.CreateAsync(model);
                 return CreatedAtRoute("VehicleMakeRoute", new { Id = model.Id }, model);
          
             }
             catch (Exception ex)
             {
-                logError.LogError(ex);
+                LogError.LogError(ex);
                 return BadRequest(ex.Message);
             }
 
@@ -125,15 +127,15 @@ namespace MVC.Controllers
                 }
                 else
                 {
-                    caching.InvalidateCache(MasterCacheKeyArray);
-                    await vehiclemakeService.UpdateAsync(model);
+                    Caching.InvalidateCache(MasterCacheKeyArray);
+                    await VehicleMakeService.UpdateAsync(model);
                     return Content(HttpStatusCode.Accepted, model);
                 }
 
             }
             catch (Exception ex)
             {
-                logError.LogError(ex);
+                LogError.LogError(ex);
                 return BadRequest(ex.Message);
             }
 
@@ -141,26 +143,19 @@ namespace MVC.Controllers
 
         [HttpDelete]
         [Route("api/VehicleMakeAPI/{Id}")]
-        public async Task<IHttpActionResult> Delete(int Id)
+        public async Task<IHttpActionResult> Delete(int id)
         {
             try
             {
-                VehicleMake model = await vehiclemakeService.GetByIdAsync(Id);
-                if (model == null)
-                {
-                    return NotFound();
-
-                }
-                else
-                {
-                    caching.InvalidateCache(MasterCacheKeyArray);
-                    await vehiclemakeService.DeleteAsync(model);
-                    return Ok();
-                }
+            
+              Caching.InvalidateCache(MasterCacheKeyArray);
+              await VehicleMakeService.DeleteAsync(id);
+              return Ok();
+                
             }
             catch (Exception ex)
             {
-                logError.LogError(ex);
+                LogError.LogError(ex);
                 return BadRequest(ex.Message);
             }
         }

@@ -36,10 +36,10 @@ namespace Project.Repository
             return Repository.UpdateAsync(entity);
         }
 
-        public Task<int> DeleteAsync(VehicleModel entity)
+        public Task<int> DeleteAsync(int id)
         {
 
-            return Repository.DeleteAsync(entity);
+            return Repository.DeleteAsync(id);
         }
 
         public async Task<IPagedList<VehicleModel>> GetPagedModel(IFilter filter)

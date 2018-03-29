@@ -30,8 +30,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\..\nuget data\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\..\..\..\..\..\..\..\nuget data\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\..\nuget data\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\..\..\nuget data\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
@@ -39,6 +47,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -63,6 +72,10 @@
     <ProjectReference Include="..\Project.DAL\Project.DAL.csproj">
       <Project>{193A8E2B-126C-4B93-ADA6-6E0FCF93EB0B}</Project>
       <Name>Project.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.Model.Common\Project.Model.Common.csproj">
+      <Project>{C5EAC808-387D-448F-9613-CDEF37A4B780}</Project>
+      <Name>Project.Model.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Project.Model\Project.Model.csproj">
       <Project>{4DB9B415-3B90-4296-956A-5BCA57B3AF2C}</Project>

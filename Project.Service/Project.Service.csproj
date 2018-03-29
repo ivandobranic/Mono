@@ -38,6 +38,10 @@
       <HintPath>..\..\..\..\..\..\..\..\nuget data\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\..\nuget data\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="PagedList">
       <HintPath>..\..\..\..\..\..\nuget data\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
     </Reference>
@@ -60,6 +64,10 @@
     <ProjectReference Include="..\Project.Common\Project.Common.csproj">
       <Project>{5CAA7342-AA8F-4A63-8D06-39FEA08E4AB0}</Project>
       <Name>Project.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.Model.Common\Project.Model.Common.csproj">
+      <Project>{C5EAC808-387D-448F-9613-CDEF37A4B780}</Project>
+      <Name>Project.Model.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Project.Model\Project.Model.csproj">
       <Project>{4DB9B415-3B90-4296-956A-5BCA57B3AF2C}</Project>

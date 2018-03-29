@@ -35,7 +35,6 @@ namespace MVC.Controllers
             {
 
                 filter.PageNumber = pageNumber ?? 1;
-                filter.PageSize = 3;
                 filter.Search = search;
                 filter.IsAscending = isAscending ?? false;
 
@@ -117,20 +116,14 @@ namespace MVC.Controllers
 
         [HttpDelete]
         [Route("api/VehicleModelAPI")]
-        public async Task<IHttpActionResult> Delete([FromBody] VehicleModel model)
+        public async Task<IHttpActionResult> Delete(int id)
         {
             try
             {
-                if (model == null)
-                {
-                    return NotFound();
-
-                }
-                else
-                {
-                    await vehiclemodelService.Delete(model);
-                    return Ok();
-                }
+                
+              await vehiclemodelService.Delete(id);
+              return Ok();
+                
             }
             catch (Exception ex)
             {

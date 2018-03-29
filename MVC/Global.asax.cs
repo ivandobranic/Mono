@@ -7,8 +7,9 @@ using System.Web.Routing;
 using AutoMapper;
 using MVC.App_Start;
 using MVC.Models;
+using Project.DAL.Entities;
 using Project.Model;
-
+using Project.Model.Common;
 
 namespace MVC
 {
@@ -24,13 +25,37 @@ namespace MVC
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             Mapper.Initialize(cfg =>
             {
+              
+                cfg.CreateMap<IVehicleMake, VehicleMakeViewModel>();
                 cfg.CreateMap<VehicleMake, VehicleMakeViewModel>();
-                cfg.CreateMap<VehicleMakeViewModel, VehicleMake>().
+                cfg.CreateMap<VehicleMakeViewModel, IVehicleMake>().
                 ForMember(x => x.VehicleModel, opt => opt.Ignore());
-                cfg.CreateMap<VehicleModel, VehicleModelViewModel>().
+                cfg.CreateMap<VehicleMakeViewModel, VehicleMake>().
+                 ForMember(x => x.VehicleModel, opt => opt.Ignore());
+                cfg.CreateMap<IVehicleModel, VehicleModelViewModel>().
                 ForMember(x => x.MakeId, opt => opt.MapFrom(source => source.VehicleMake.Id));
-                cfg.CreateMap<VehicleModelViewModel, VehicleModel>().
+                cfg.CreateMap<VehicleModelViewModel, IVehicleModel>().
                 ForMember(x => x.VehicleMake, opts => opts.Ignore());
+
+              
+                cfg.CreateMap<VehicleMakeEntity, IVehicleMake>().
+                ForMember(x => x.VehicleModel, opt => opt.Ignore());
+                cfg.CreateMap<VehicleMakeEntity, VehicleMake>().
+                ForMember(x => x.VehicleModel, opt => opt.Ignore());
+                cfg.CreateMap<IVehicleMake, VehicleMakeEntity>().
+                ForMember(x => x.VehicleModelEntity, opt => opt.Ignore());
+                cfg.CreateMap<VehicleMake, VehicleMakeEntity>().
+                ForMember(x => x.VehicleModelEntity, opt => opt.Ignore());
+                cfg.CreateMap<VehicleModelEntity, IVehicleModel>().
+                ForMember(x => x.MakeId, opt => opt.MapFrom(source => source.VehicleMakeEntity.Id)).
+                ForMember(x => x.VehicleMake, opt => opt.Ignore());
+                cfg.CreateMap<IVehicleModel, VehicleModelEntity>().
+                ForMember(x => x.VehicleMakeEntity, opts => opts.Ignore());
+                cfg.CreateMap<VehicleModelEntity, VehicleModel>().
+                ForMember(x => x.MakeId, opt => opt.MapFrom(source => source.VehicleMakeEntity.Id)).
+                 ForMember(x => x.VehicleMake, opt => opt.Ignore());
+                cfg.CreateMap<VehicleModel, VehicleModelEntity>().
+                ForMember(x => x.VehicleMakeEntity, opts => opts.Ignore());
 
             });
             GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings

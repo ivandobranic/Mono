@@ -32,3 +32,4 @@ C:\Users\ivand\Source\Repos\MonoProject\Project.DAL\obj\Debug\Project.DAL.Migrat
 C:\Users\ivand\Source\Repos\MonoProject\Project.DAL\obj\Debug\Project.DAL.csproj.GenerateResource.Cache
 C:\Users\ivand\Source\Repos\MonoProject\Project.DAL\obj\Debug\Project.DAL.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.DAL\obj\Debug\Project.DAL.pdb
+C:\Users\ivand\Source\Repos\MonoProject\Project.DAL\obj\Debug\Project.DAL.Migrations.ChangedDAL.resources

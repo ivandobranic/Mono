@@ -14,7 +14,9 @@ namespace MVC.App_Start
     using Ninject.Web.Mvc;
     using Project.Common.Caching;
     using Project.Common.Logging;
+    using Project.DAL.Entities;
     using Project.Model;
+    using Project.Model.Common;
     using Project.Repository;
     using Project.Repository.Common;
     using Project.Service;
@@ -71,10 +73,12 @@ namespace MVC.App_Start
         private static void RegisterServices(IKernel kernel)
         {
 
-            kernel.Bind<IRepository<VehicleMake>>().To<GenericRepository<VehicleMake>>();
+            kernel.Bind<IRepository<VehicleMakeEntity>>().To<GenericRepository<VehicleMakeEntity>>();
             kernel.Bind<IRepository<VehicleModel>>().To<GenericRepository<VehicleModel>>();
             kernel.Bind<IMakeRepository>().To<VehicleMakeRepository>();
             kernel.Bind<IModelRepository>().To<VehicleModelRepository>();
+            kernel.Bind<IVehicleMake>().To<VehicleMake>();
+            kernel.Bind<IVehicleModel>().To<VehicleModel>();
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>();
             kernel.Bind<IVehicleMakeService>().To<VehicleMakeService>();
             kernel.Bind<IVehicleModelService>().To<VehicleModelService>();

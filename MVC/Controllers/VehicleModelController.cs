@@ -36,7 +36,6 @@ namespace MVC.Controllers
             filter.Search = search;
             filter.IsAscending = isAscending;
             filter.PageNumber = pageNumber ?? 1;
-            filter.PageSize = 3;
 
             List<VehicleModelViewModel> model = new List<VehicleModelViewModel>();
             var pagedList = await vehicleModelService.PagedList(filter);
@@ -44,7 +43,7 @@ namespace MVC.Controllers
             ViewBag.sortOrder = isAscending ? false : true;
             model = Mapper.Map<List<VehicleModel>, List<VehicleModelViewModel>>(newPagedList);
             Mapper.AssertConfigurationIsValid();
-            var paged = new StaticPagedList<VehicleModelViewModel>(model, pageNumber ?? 1, 3, filter.TotalCount);
+            var paged = new StaticPagedList<VehicleModelViewModel>(model, pageNumber ?? 1, filter.PageSize, filter.TotalCount);
             return View(paged);
 
         }
@@ -160,7 +159,7 @@ namespace MVC.Controllers
             Mapper.AssertConfigurationIsValid();
             if (vehicle != null)
             {
-                await vehicleModelService.Delete(vehicle);
+                await vehicleModelService.Delete(vehicle.Id);
                 return RedirectToAction("Index");
             }
             return View(model);

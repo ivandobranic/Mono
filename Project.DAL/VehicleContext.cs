@@ -5,6 +5,7 @@
     using System.Data.Entity.Core.Metadata.Edm;
     using System.Data.Entity.Infrastructure;
     using System.Globalization;
+    using Entities;
     using Model;
 
     public class VehicleContext : DbContext
@@ -15,40 +16,40 @@
         {
 
         }
-        public virtual DbSet<VehicleMake> VehicleMake { get; set; }
-        public virtual DbSet<VehicleModel> VehicleModel { get; set; }
+        public virtual DbSet<VehicleMakeEntity> VehicleMake { get; set; }
+        public virtual DbSet<VehicleModelEntity> VehicleModel { get; set; }
        
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<VehicleMake>()
-                .HasMany(e => e.VehicleModel)
-                .WithRequired(e => e.VehicleMake)
+            modelBuilder.Entity<VehicleMakeEntity>()
+                .HasMany(e => e.VehicleModelEntity)
+                .WithRequired(e => e.VehicleMakeEntity)
                 .HasForeignKey(e => e.MakeId)
                 .WillCascadeOnDelete();
-            modelBuilder.Entity<VehicleMake>()
+            modelBuilder.Entity<VehicleMakeEntity>()
                 .Property(e => e.Id)
                 .IsRequired();
-            modelBuilder.Entity<VehicleMake>()
+            modelBuilder.Entity<VehicleMakeEntity>()
                 .Property(e => e.Name)
                 .IsRequired()
                 .HasMaxLength(20);
-            modelBuilder.Entity<VehicleMake>()
+            modelBuilder.Entity<VehicleMakeEntity>()
                 .Property(e => e.Abrv)
                 .IsRequired()
                 .HasMaxLength(20);
-            modelBuilder.Entity<VehicleModel>()
+            modelBuilder.Entity<VehicleModelEntity>()
                .Property(e => e.Id)
                .IsRequired();
-            modelBuilder.Entity<VehicleModel>()
+            modelBuilder.Entity<VehicleModelEntity>()
                 .Property(e => e.MakeId)
                 .IsRequired();
-            modelBuilder.Entity<VehicleModel>()
+            modelBuilder.Entity<VehicleModelEntity>()
                 .Property(e => e.Name)
                 .IsRequired()
                 .HasMaxLength(20);
-            modelBuilder.Entity<VehicleModel>()
+            modelBuilder.Entity<VehicleModelEntity>()
                 .Property(e => e.Abrv)
                 .IsRequired()
                 .HasMaxLength(20);

@@ -87,3 +87,5 @@ C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Tests\bin\Debug\EntityFr
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Tests\bin\Debug\Project.Repository.pdb
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Tests\bin\Debug\Project.DAL.pdb
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Tests\bin\Debug\EntityFramework.xml
+C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Tests\bin\Debug\AutoMapper.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.Service.Tests\bin\Debug\AutoMapper.xml

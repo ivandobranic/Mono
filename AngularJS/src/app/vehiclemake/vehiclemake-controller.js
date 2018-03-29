@@ -8,10 +8,6 @@ app.controller("vehiclemakeController", function ($http, $stateParams, $state, $
     var vm = this;
 
     //get
-    vm.vehiclemakedata = [];
-    vm.pageNumber = 1;
-    vm.pageSize = 3;
-    vm.isAcending = false;
     vm.filter = "";
     vm.sort = function () {
         vm.sorting = vm.isAscending == false ? vm.isAscending= true : vm.isAscending = false;
@@ -28,6 +24,9 @@ app.controller("vehiclemakeController", function ($http, $stateParams, $state, $
         GetVehicleMake.then(function (response) {
             vm.vehicleMakeData = response.data.Model;
             vm.totalCount = response.data.TotalCount;
+            vm.pageSize = response.data.PageSize;
+            vm.pageNumber = response.data.pageNumber;
+            vm.isAscending = response.data.isAscending
             $log.info(response);
         }, function (reason) {
             vm.error = reason.data;

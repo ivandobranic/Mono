@@ -30,9 +30,9 @@ namespace Project.Service
            return await VehicleModelRepository.UpdateAsync(vehicleModel);
         }
 
-        public async Task<int> Delete(VehicleModel vehicleModel)
+        public async Task<int> Delete(int id)
         {
-           return await VehicleModelRepository.DeleteAsync(vehicleModel);
+           return await VehicleModelRepository.DeleteAsync(id);
         }
 
 

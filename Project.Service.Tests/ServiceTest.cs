@@ -11,6 +11,7 @@ using Project.Repository.Common;
 using Project.Service;
 using Project.Repository;
 using PagedList;
+using Project.Model.Common;
 
 namespace Service.Tests
 {
@@ -46,16 +47,15 @@ namespace Service.Tests
        
         }
 
-        
+
         [Fact]
         public async Task Delete_Success()
         {
             var vehicleModel = new VehicleModel { Id = 5, MakeId = 3, Name = "306", Abrv = "306" };
 
-            modelRepository.Setup(x => x.DeleteAsync(It.IsAny<VehicleModel>()))
-                .ReturnsAsync(1);
+            modelRepository.Setup(x => x.DeleteAsync(vehicleModel.Id)).ReturnsAsync(1);
             var vehicleModelService = new VehicleModelService(modelRepository.Object);
-            var result = await vehicleModelService.Delete(vehicleModel);
+            var result = await vehicleModelService.Delete(vehicleModel.Id);
             result.ShouldBeEquivalentTo(1);
         }
 
@@ -86,7 +86,6 @@ namespace Service.Tests
              Search = null,
              IsAscending = false,
              PageNumber = 1,
-             PageSize = 2,
              TotalCount = 2
              };
             modelRepository.Setup(x => x.GetPagedModel(filter))

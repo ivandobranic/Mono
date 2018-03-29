@@ -14,7 +14,7 @@ namespace Project.Service.Common
         Task<VehicleModel> GetById(int id);
         Task<int> Create(VehicleModel vehicleModel);
         Task<int> Update(VehicleModel vehicleModel);
-        Task<int> Delete(VehicleModel vehicleModel);
+        Task<int> Delete(int id);
         Task<IPagedList<VehicleModel>> PagedList(IFilter filter);
     }
 }

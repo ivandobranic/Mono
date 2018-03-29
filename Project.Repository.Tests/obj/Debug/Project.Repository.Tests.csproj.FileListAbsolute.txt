@@ -83,3 +83,5 @@ C:\Users\ivand\Source\Repos\MonoProject\Project.Repository.Tests\bin\Debug\Paged
 C:\Users\ivand\Source\Repos\MonoProject\Project.Repository.Tests\obj\Debug\Project.Repository.Tests.csprojResolveAssemblyReference.cache
 C:\Users\ivand\Source\Repos\MonoProject\Project.Repository.Tests\obj\Debug\Project.Repository.Tests.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.Repository.Tests\obj\Debug\Project.Repository.Tests.pdb
+C:\Users\ivand\Source\Repos\MonoProject\Project.Repository.Tests\bin\Debug\AutoMapper.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.Repository.Tests\bin\Debug\AutoMapper.xml

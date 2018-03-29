@@ -12,25 +12,25 @@ namespace Project.Repository
      where TEntity : class
     {
 
-        private readonly VehicleContext context;
-        private DbSet<TEntity> entities;
-        public GenericRepository(VehicleContext _context)
+        private readonly VehicleContext Context;
+        private DbSet<TEntity> Entities;
+        public GenericRepository(VehicleContext context)
         {
-            this.context = _context;
-            entities = context.Set<TEntity>();
+            this.Context = context;
+            Entities = Context.Set<TEntity>();
 
         }
 
 
         public IQueryable<TEntity> Get()
         {
-            return entities;
+            return Entities;
         }
 
-        public async Task<TEntity> GetByIdAsync(int? Id)
+        public async Task<TEntity> GetByIdAsync(int id)
         {
 
-            return await entities.FindAsync(Id);
+            return await Entities.FindAsync(id);
 
         }
 
@@ -42,8 +42,8 @@ namespace Project.Repository
                 {
                     throw new ArgumentException("entity");
                 }
-                entities.Add(entity);
-               return await context.SaveChangesAsync();
+                Entities.Add(entity);
+               return await Context.SaveChangesAsync();
                
             }
             catch (DbEntityValidationException dbEx)
@@ -73,8 +73,8 @@ namespace Project.Repository
                 {
                     throw new ArgumentException("entity");
                 }
-                context.Entry(entity).State = EntityState.Modified;
-                return await context.SaveChangesAsync();
+                Context.Entry(entity).State = EntityState.Modified;
+                return await Context.SaveChangesAsync();
             }
             catch (DbEntityValidationException dbEx)
             {
@@ -93,16 +93,17 @@ namespace Project.Repository
             }
         }
 
-        public async Task<int> DeleteAsync(TEntity entity)
+        public async Task<int> DeleteAsync(int id)
         {
             try
             {
+                var entity = await Entities.FindAsync(id);
                 if (entity == null)
                 {
                     throw new ArgumentNullException("entity");
                 }
-                context.Entry(entity).State = EntityState.Deleted;
-                return await context.SaveChangesAsync();
+                Context.Entry(entity).State = EntityState.Deleted;
+                return await Context.SaveChangesAsync();
             }
             catch (DbEntityValidationException dbEx)
             {

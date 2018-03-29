@@ -49,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\VehicleMakeEntity.cs" />
+    <Compile Include="Entities\VehicleModelEntity.cs" />
     <Compile Include="Migrations\201801290006535_InitialCreate.cs" />
     <Compile Include="Migrations\201801290006535_InitialCreate.Designer.cs">
       <DependentUpon>201801290006535_InitialCreate.cs</DependentUpon>
@@ -56,6 +58,10 @@
     <Compile Include="Migrations\201803020329496_FluentApi.cs" />
     <Compile Include="Migrations\201803020329496_FluentApi.Designer.cs">
       <DependentUpon>201803020329496_FluentApi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803291042157_ChangedDAL.cs" />
+    <Compile Include="Migrations\201803291042157_ChangedDAL.Designer.cs">
+      <DependentUpon>201803291042157_ChangedDAL.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,6 +83,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803020329496_FluentApi.resx">
       <DependentUpon>201803020329496_FluentApi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803291042157_ChangedDAL.resx">
+      <DependentUpon>201803291042157_ChangedDAL.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -9,5 +9,6 @@
         int MakeId { get; set; }
 
         string Abrv { get; set; }
+        IVehicleMake VehicleMake { get; set; }
     }
 }

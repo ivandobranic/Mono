@@ -13,7 +13,7 @@ namespace Project.Repository.Common
         Task<VehicleModel> GetByIdAsync(int id);
         Task<int> InsertAsync(VehicleModel entity);
         Task<int> UpdateAsync(VehicleModel entity);
-        Task<int> DeleteAsync(VehicleModel entity);
+        Task<int> DeleteAsync(int id);
         Task<IPagedList<VehicleModel>> GetPagedModel(IFilter filter);
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using PagedList;
 using Project.Common.Caching;
 using Project.Model;
+using Project.Model.Common;
 using Project.Repository.Common;
 using Project.Service.Common;
 
@@ -21,33 +22,33 @@ namespace Project.Service
         }
 
 
-        public async Task<VehicleMake> GetByIdAsync(int id)
+        public async Task<IVehicleMake> GetByIdAsync(int id)
         {
 
             return await VehicleMakeRepository.GetByIdAsync(id);
                
         }
 
-        public async Task<int> CreateAsync(VehicleMake VehicleMake)
+        public async Task<int> CreateAsync(IVehicleMake vehicleMake)
         {
-            return await VehicleMakeRepository.InsertAsync(VehicleMake);
+            return await VehicleMakeRepository.InsertAsync(vehicleMake);
          
         }
 
-        public async Task<int> UpdateAsync(VehicleMake VehicleMake)
+        public async Task<int> UpdateAsync(IVehicleMake vehicleMake)
         {
             
-          return await VehicleMakeRepository.UpdateAsync(VehicleMake);
+          return await VehicleMakeRepository.UpdateAsync(vehicleMake);
             
         }
 
-        public async Task<int> DeleteAsync(VehicleMake VehicleMake)
+        public async Task<int> DeleteAsync(int id)
         {
-           return await VehicleMakeRepository.DeleteAsync(VehicleMake);
+           return await VehicleMakeRepository.DeleteAsync(id);
            
         }
 
-        public async Task<IPagedList<VehicleMake>> PagedList(IFilter filter)
+        public async Task<IPagedList<IVehicleMake>> PagedList(IFilter filter)
         {
             return await VehicleMakeRepository.GetPagedMake(filter);
         }

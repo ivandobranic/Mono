@@ -10,6 +10,7 @@ using MVC.Models;
 using PagedList;
 using Project.Common.Caching;
 using Project.Model;
+using Project.Model.Common;
 using Project.Repository.Common;
 using Project.Service.Common;
 
@@ -32,13 +33,13 @@ namespace MVC.Controllers
             filter.Search = search;
             filter.IsAscending = isAscending;
             filter.PageNumber = pageNumber ?? 1;
-            filter.PageSize = 3;
+        
 
             List<VehicleMakeViewModel> model = new List<VehicleMakeViewModel>();
             var pagedList = await vehiclemakeService.PagedList(filter);
             var newPagedList = pagedList.ToList();
             ViewBag.sortOrder = isAscending ? false : true;
-            model = Mapper.Map<List<VehicleMake>, List<VehicleMakeViewModel>>(newPagedList);
+            model = Mapper.Map<List<IVehicleMake>, List<VehicleMakeViewModel>>(newPagedList);
             Mapper.AssertConfigurationIsValid();
             var paged = new StaticPagedList<VehicleMakeViewModel>(model, pageNumber ?? 1, 3, filter.TotalCount);
             return View(paged);
@@ -57,7 +58,7 @@ namespace MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                var vehicle = Mapper.Map<VehicleMakeViewModel, VehicleMake>(model);
+                var vehicle = Mapper.Map<VehicleMakeViewModel, IVehicleMake>(model);
                 Mapper.AssertConfigurationIsValid();
                 await vehiclemakeService.CreateAsync(vehicle);
                 return RedirectToAction("Index");
@@ -74,7 +75,7 @@ namespace MVC.Controllers
             {
                 return HttpNotFound();
             }
-            model = Mapper.Map<VehicleMake, VehicleMakeViewModel>(vehicleMake);
+            model = Mapper.Map<IVehicleMake, VehicleMakeViewModel>(vehicleMake);
             Mapper.AssertConfigurationIsValid();
 
             return View(model);
@@ -90,7 +91,7 @@ namespace MVC.Controllers
             {
                 return HttpNotFound();
             }
-            model = Mapper.Map<VehicleMake, VehicleMakeViewModel>(vehicle);
+            model = Mapper.Map<IVehicleMake, VehicleMakeViewModel>(vehicle);
             Mapper.AssertConfigurationIsValid();
             return View(model);
         }
@@ -118,7 +119,7 @@ namespace MVC.Controllers
             {
                 return HttpNotFound();
             }
-            model = Mapper.Map<VehicleMake, VehicleMakeViewModel>(vehicle);
+            model = Mapper.Map<IVehicleMake, VehicleMakeViewModel>(vehicle);
             Mapper.AssertConfigurationIsValid();
             return View(model);
         }
@@ -130,7 +131,7 @@ namespace MVC.Controllers
             Mapper.AssertConfigurationIsValid();
             if (vehicle != null)
             {
-                await vehiclemakeService.DeleteAsync(vehicle);
+                await vehiclemakeService.DeleteAsync(vehicle.Id);
                 return RedirectToAction("Index");
             }
             return View(model);

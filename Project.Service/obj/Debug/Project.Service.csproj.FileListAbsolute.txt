@@ -40,3 +40,5 @@ C:\Users\ivand\Source\Repos\MonoProject\Project.Service\bin\Debug\Project.Model.
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service\obj\Debug\Project.Service.csprojResolveAssemblyReference.cache
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service\obj\Debug\Project.Service.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.Service\obj\Debug\Project.Service.pdb
+C:\Users\ivand\Source\Repos\MonoProject\Project.Service\bin\Debug\Ninject.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.Service\bin\Debug\Ninject.xml
