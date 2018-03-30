@@ -32,7 +32,7 @@ namespace Service.Tests
             modelRepository.Setup(x => x.GetByIdAsync(It.IsAny<int>()))
                 .ReturnsAsync((int id) => vehicleModelList.Where(v => v.Id == id).Single());
             var vehicleModelService = new VehicleModelService(modelRepository.Object);
-            var result = await vehicleModelService.GetById(2);
+            var result = await vehicleModelService.GetByIdAsync(2);
             result.ShouldBeEquivalentTo(vehicleModelList.First());
         }
 
@@ -42,7 +42,7 @@ namespace Service.Tests
             var newVehicleModel = new VehicleModel { Id = 5, MakeId = 3, Name = "306", Abrv = "306" };
             modelRepository.Setup(x => x.InsertAsync(It.IsAny<VehicleModel>())).ReturnsAsync(1);
             var vehicleModelService = new VehicleModelService(modelRepository.Object);
-            var result = await vehicleModelService.Create(newVehicleModel);
+            var result = await vehicleModelService.CreateAsync(newVehicleModel);
             result.ShouldBeEquivalentTo(1);
        
         }
@@ -55,7 +55,7 @@ namespace Service.Tests
 
             modelRepository.Setup(x => x.DeleteAsync(vehicleModel.Id)).ReturnsAsync(1);
             var vehicleModelService = new VehicleModelService(modelRepository.Object);
-            var result = await vehicleModelService.Delete(vehicleModel.Id);
+            var result = await vehicleModelService.DeleteAsync(vehicleModel.Id);
             result.ShouldBeEquivalentTo(1);
         }
 
@@ -68,7 +68,7 @@ namespace Service.Tests
             modelRepository.Setup(x => x.UpdateAsync(It.IsAny<VehicleModel>()))
                 .ReturnsAsync(1);
             var vehicleModelService = new VehicleModelService(modelRepository.Object);
-            var result = await vehicleModelService.Update(vehicleModel);
+            var result = await vehicleModelService.UpdateAsync(vehicleModel);
             result.ShouldBeEquivalentTo(1);
         
         }

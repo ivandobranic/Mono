@@ -5,15 +5,12 @@ namespace MVC.App_Start
 {
     using System;
     using System.Web;
-    using System.Web.Http;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
     using Ninject;
     using Ninject.Web.Common;
     using Ninject.Web.Common.WebHost;
-    using Ninject.Web.Mvc;
     using Project.Common.Caching;
-    using Project.Common.Logging;
     using Project.DAL.Entities;
     using Project.Model;
     using Project.Model.Common;
@@ -74,7 +71,7 @@ namespace MVC.App_Start
         {
 
             kernel.Bind<IRepository<VehicleMakeEntity>>().To<GenericRepository<VehicleMakeEntity>>();
-            kernel.Bind<IRepository<VehicleModel>>().To<GenericRepository<VehicleModel>>();
+            kernel.Bind<IRepository<VehicleModelEntity>>().To<GenericRepository<VehicleModelEntity>>();
             kernel.Bind<IMakeRepository>().To<VehicleMakeRepository>();
             kernel.Bind<IModelRepository>().To<VehicleModelRepository>();
             kernel.Bind<IVehicleMake>().To<VehicleMake>();

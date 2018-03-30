@@ -29,7 +29,7 @@ C:\Users\ivand\Source\Repos\MonoProject\Project.DAL\bin\Debug\Project.Model.Comm
 C:\Users\ivand\Source\Repos\MonoProject\Project.DAL\obj\Debug\Project.DAL.csprojResolveAssemblyReference.cache
 C:\Users\ivand\Source\Repos\MonoProject\Project.DAL\obj\Debug\Project.DAL.Migrations.InitialCreate.resources
 C:\Users\ivand\Source\Repos\MonoProject\Project.DAL\obj\Debug\Project.DAL.Migrations.FluentApi.resources
+C:\Users\ivand\Source\Repos\MonoProject\Project.DAL\obj\Debug\Project.DAL.Migrations.ChangedDAL.resources
 C:\Users\ivand\Source\Repos\MonoProject\Project.DAL\obj\Debug\Project.DAL.csproj.GenerateResource.Cache
 C:\Users\ivand\Source\Repos\MonoProject\Project.DAL\obj\Debug\Project.DAL.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.DAL\obj\Debug\Project.DAL.pdb
-C:\Users\ivand\Source\Repos\MonoProject\Project.DAL\obj\Debug\Project.DAL.Migrations.ChangedDAL.resources

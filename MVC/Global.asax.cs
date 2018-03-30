@@ -5,7 +5,6 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using AutoMapper;
-using MVC.App_Start;
 using MVC.Models;
 using Project.DAL.Entities;
 using Project.Model;

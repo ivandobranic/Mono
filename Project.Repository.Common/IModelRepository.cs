@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using PagedList;
-using Project.Model;
+using Project.Model.Common;
 
 namespace Project.Repository.Common
 {
     public interface IModelRepository 
     {
-        Task<VehicleModel> GetByIdAsync(int id);
-        Task<int> InsertAsync(VehicleModel entity);
-        Task<int> UpdateAsync(VehicleModel entity);
+        Task<IVehicleModel> GetByIdAsync(int id);
+        Task<int> InsertAsync(IVehicleModel entity);
+        Task<int> UpdateAsync(IVehicleModel entity);
         Task<int> DeleteAsync(int id);
-        Task<IPagedList<VehicleModel>> GetPagedModel(IFilter filter);
+        Task<IPagedList<IVehicleModel>> GetPagedModel(IFilter filter);
     }
 }

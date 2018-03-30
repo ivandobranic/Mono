@@ -3,12 +3,10 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Http;
-using PagedList;
 using Project.Common.Caching;
 using Project.Common.Logging;
 using Project.Model;
 using Project.Model.Common;
-using Project.Repository;
 using Project.Repository.Common;
 using Project.Service.Common;
 

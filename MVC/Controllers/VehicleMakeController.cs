@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
 using MVC.Models;
 using PagedList;
-using Project.Common.Caching;
 using Project.Model;
 using Project.Model.Common;
 using Project.Repository.Common;
@@ -41,7 +37,7 @@ namespace MVC.Controllers
             ViewBag.sortOrder = isAscending ? false : true;
             model = Mapper.Map<List<IVehicleMake>, List<VehicleMakeViewModel>>(newPagedList);
             Mapper.AssertConfigurationIsValid();
-            var paged = new StaticPagedList<VehicleMakeViewModel>(model, pageNumber ?? 1, 3, filter.TotalCount);
+            var paged = new StaticPagedList<VehicleMakeViewModel>(model, pageNumber ?? 1, filter.PageSize, filter.TotalCount);
             return View(paged);
 
         }

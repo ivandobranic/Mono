@@ -2,49 +2,53 @@
 using System.Linq;
 using System.Threading.Tasks;
 using PagedList;
-using Project.Model;
+using AutoMapper;
 using Project.Repository.Common;
+using Project.DAL.Entities;
+using Project.Model.Common;
+using System.Collections.Generic;
 
 namespace Project.Repository
 {
     public class VehicleModelRepository : IModelRepository
     {
 
-       
-        private readonly IRepository<VehicleModel> Repository;
-        public VehicleModelRepository(IRepository<VehicleModel> _Repository)
+
+        private readonly IRepository<VehicleModelEntity> Repository;
+        public VehicleModelRepository(IRepository<VehicleModelEntity> repository)
         {
-            this.Repository =_Repository;
-            
-        }
-
-        public async Task<VehicleModel> GetByIdAsync(int Id)
-        {
-
-            return await Repository.GetByIdAsync(Id);
-        }
-
-        public Task<int> InsertAsync(VehicleModel entity)
-        {
-
-            return Repository.InsertAsync(entity);
+            this.Repository = repository;
 
         }
 
-        public Task<int> UpdateAsync(VehicleModel entity)
+        public async Task<IVehicleModel> GetByIdAsync(int id)
         {
-            return Repository.UpdateAsync(entity);
+            var entity = await Repository.GetByIdAsync(id);
+            return Mapper.Map<VehicleModelEntity, IVehicleModel>(entity);
+
         }
 
-        public Task<int> DeleteAsync(int id)
+        public async Task<int> InsertAsync(IVehicleModel domainModel)
         {
+            var entity = Mapper.Map<IVehicleModel, VehicleModelEntity>(domainModel);
+            return await Repository.InsertAsync(entity);
 
-            return Repository.DeleteAsync(id);
         }
 
-        public async Task<IPagedList<VehicleModel>> GetPagedModel(IFilter filter)
+        public async Task<int> UpdateAsync(IVehicleModel domainModel)
+        {
+            var entity = Mapper.Map<IVehicleModel, VehicleModelEntity>(domainModel);
+            return await Repository.UpdateAsync(entity);
+        }
+
+        public async Task<int> DeleteAsync(int id)
+        {
+            return await Repository.DeleteAsync(id);
+        }
+        public async Task<IPagedList<IVehicleModel>> GetPagedModel(IFilter filter)
         {
             var query = Repository.Get();
+
             query = filter.IsAscending == false ? query.OrderByDescending(x => x.Name) : query.OrderBy(x => x.Name);
             if (!string.IsNullOrEmpty(filter.Search))
             {
@@ -56,8 +60,10 @@ namespace Project.Repository
                 filter.TotalCount = await query.CountAsync();
                 query = query.Skip((filter.PageNumber - 1) * filter.PageSize).Take(filter.PageSize);
             }
-
-            return new StaticPagedList<VehicleModel>(query, filter.PageNumber, filter.PageSize, filter.TotalCount);
+            var enumerableQuery = query.AsEnumerable();
+            var mappedQuery = Mapper.Map<IEnumerable<VehicleModelEntity>, IEnumerable<IVehicleModel>>(enumerableQuery);
+            return new StaticPagedList<IVehicleModel>(mappedQuery, filter.PageNumber, filter.PageSize, filter.TotalCount);
         }
     }
 }
+

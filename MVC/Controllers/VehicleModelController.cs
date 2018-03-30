@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
 using MVC.Models;
 using PagedList;
-using Project.Common.Caching;
-using Project.Model;
+using Project.DAL.Entities;
+using Project.Model.Common;
 using Project.Repository.Common;
 using Project.Service.Common;
 
@@ -18,11 +16,11 @@ namespace MVC.Controllers
     public class VehicleModelController : Controller
     {
         IVehicleModelService vehicleModelService;
-        IRepository<VehicleMake> makeRepository;
-        IRepository<VehicleModel> modelRepository;
+        IRepository<VehicleMakeEntity> makeRepository;
+        IRepository<VehicleModelEntity> modelRepository;
         IFilter filter;
         public VehicleModelController(IVehicleModelService _vehicleModelService, 
-            IRepository<VehicleMake> _makeRepository, IRepository<VehicleModel> _modelRepository,
+            IRepository<VehicleMakeEntity> _makeRepository, IRepository<VehicleModelEntity> _modelRepository,
             IFilter _filter)
         {
             this.vehicleModelService = _vehicleModelService;
@@ -41,7 +39,7 @@ namespace MVC.Controllers
             var pagedList = await vehicleModelService.PagedList(filter);
             var newPagedList = pagedList.ToList();
             ViewBag.sortOrder = isAscending ? false : true;
-            model = Mapper.Map<List<VehicleModel>, List<VehicleModelViewModel>>(newPagedList);
+            model = Mapper.Map<List<IVehicleModel>, List<VehicleModelViewModel>>(newPagedList);
             Mapper.AssertConfigurationIsValid();
             var paged = new StaticPagedList<VehicleModelViewModel>(model, pageNumber ?? 1, filter.PageSize, filter.TotalCount);
             return View(paged);
@@ -58,19 +56,19 @@ namespace MVC.Controllers
             return View();
         }
         [HttpGet]
-        public ActionResult Model(int? MakeId)
+        public ActionResult Model(int? makeId)
         {
-            if (MakeId == null)
+            if (makeId == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             List<VehicleModelViewModel> model = new List<VehicleModelViewModel>();
-            var vehicleModel = modelRepository.Get().Where(x => x.MakeId == MakeId).ToList();
+            var vehicleModel = modelRepository.Get().Where(x => x.MakeId == makeId).ToList();
             if (vehicleModel == null)
             {
                 return HttpNotFound();
             }
-            model = Mapper.Map<List<VehicleModel>, List<VehicleModelViewModel>>(vehicleModel);
+            model = Mapper.Map<List<VehicleModelEntity>, List<VehicleModelViewModel>>(vehicleModel);
             Mapper.AssertConfigurationIsValid();
 
             return View(model);
@@ -80,12 +78,12 @@ namespace MVC.Controllers
         {
            
             VehicleModelViewModel model = new VehicleModelViewModel();
-            var vehicleModel = await vehicleModelService.GetById(id);
+            var vehicleModel = await vehicleModelService.GetByIdAsync(id);
             if (vehicleModel == null)
             {
                 return HttpNotFound();
             }
-            model = Mapper.Map<VehicleModel, VehicleModelViewModel>(vehicleModel);
+            model = Mapper.Map<IVehicleModel, VehicleModelViewModel>(vehicleModel);
             Mapper.AssertConfigurationIsValid();
 
             return View(model);
@@ -96,10 +94,10 @@ namespace MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                var vehicle = Mapper.Map<VehicleModelViewModel, VehicleModel>(model);
+                var vehicle = Mapper.Map<VehicleModelViewModel, IVehicleModel>(model);
                 Mapper.AssertConfigurationIsValid();
 
-                await vehicleModelService.Create(vehicle);
+                await vehicleModelService.CreateAsync(vehicle);
                 return RedirectToAction("Index");
             }
 
@@ -111,12 +109,12 @@ namespace MVC.Controllers
         {
           
             VehicleModelViewModel model = new VehicleModelViewModel();
-            var vehicle = await vehicleModelService.GetById(id);
+            var vehicle = await vehicleModelService.GetByIdAsync(id);
             if (vehicle == null)
             {
                 return HttpNotFound();
             }
-            model = Mapper.Map<VehicleModel, VehicleModelViewModel>(vehicle);
+            model = Mapper.Map<IVehicleModel, VehicleModelViewModel>(vehicle);
             Mapper.AssertConfigurationIsValid();
             var vehicleMake = makeRepository.Get().ToList();
             ViewBag.MakeId = new SelectList(vehicleMake, "Id", "Name", model.MakeId);
@@ -129,10 +127,10 @@ namespace MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                var vehicle = Mapper.Map<VehicleModelViewModel, VehicleModel>(model);
+                var vehicle = Mapper.Map<VehicleModelViewModel, IVehicleModel>(model);
                 Mapper.AssertConfigurationIsValid();
 
-                await vehicleModelService.Update(vehicle);
+                await vehicleModelService.UpdateAsync(vehicle);
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -142,27 +140,25 @@ namespace MVC.Controllers
         public async Task<ActionResult> Delete(int id)
         {
             VehicleModelViewModel model = new VehicleModelViewModel();
-            var vehicle = await vehicleModelService.GetById(id);
+            var vehicle = await vehicleModelService.GetByIdAsync(id);
             if (vehicle == null)
             {
                 return HttpNotFound();
             }
-            model = Mapper.Map<VehicleModel, VehicleModelViewModel>(vehicle);
+            model = Mapper.Map<IVehicleModel, VehicleModelViewModel>(vehicle);
             Mapper.AssertConfigurationIsValid();
             return View(model);
         }
-
+        
         [HttpPost]
-        public async Task<ActionResult> Delete(VehicleModelViewModel model)
+        [ActionName("Delete")]
+        public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            var vehicle = Mapper.Map<VehicleModelViewModel, VehicleModel>(model);
-            Mapper.AssertConfigurationIsValid();
-            if (vehicle != null)
-            {
-                await vehicleModelService.Delete(vehicle.Id);
-                return RedirectToAction("Index");
-            }
-            return View(model);
+         
+               await vehicleModelService.DeleteAsync(id);
+               return RedirectToAction("Index");
+        
+           
         }
 
     }

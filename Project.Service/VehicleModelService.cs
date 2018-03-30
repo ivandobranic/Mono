@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using PagedList;
-using Project.Model;
+using Project.Model.Common;
 using Project.Repository.Common;
 using Project.Service.Common;
 
@@ -8,35 +8,40 @@ namespace Project.Service
 {
     public class VehicleModelService : IVehicleModelService
     {
-       IModelRepository VehicleModelRepository;
+        IModelRepository VehicleModelRepository;
         public VehicleModelService(IModelRepository vehicleModelRepository)
         {
             this.VehicleModelRepository = vehicleModelRepository;
         }
 
 
-        public async Task<VehicleModel> GetById(int id)
+        public async Task<IVehicleModel> GetByIdAsync(int id)
         {
+
             return await VehicleModelRepository.GetByIdAsync(id);
+
         }
 
-        public async Task<int> Create(VehicleModel vehicleModel)
+        public async Task<int> CreateAsync(IVehicleModel vehicleMake)
         {
-            return await VehicleModelRepository.InsertAsync(vehicleModel);
+            return await VehicleModelRepository.InsertAsync(vehicleMake);
+
         }
 
-        public async Task<int> Update(VehicleModel vehicleModel)
+        public async Task<int> UpdateAsync(IVehicleModel vehicleMake)
         {
-           return await VehicleModelRepository.UpdateAsync(vehicleModel);
+
+            return await VehicleModelRepository.UpdateAsync(vehicleMake);
+
         }
 
-        public async Task<int> Delete(int id)
+        public async Task<int> DeleteAsync(int id)
         {
-           return await VehicleModelRepository.DeleteAsync(id);
+            return await VehicleModelRepository.DeleteAsync(id);
+
         }
 
-
-        public async Task<IPagedList<VehicleModel>> PagedList(IFilter filter)
+        public async Task<IPagedList<IVehicleModel>> PagedList(IFilter filter)
         {
             return await VehicleModelRepository.GetPagedModel(filter);
         }

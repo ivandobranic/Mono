@@ -62,6 +62,7 @@ C:\Users\ivand\Source\Repos\MonoProject\Project.Repository.Tests\bin\Debug\xunit
 C:\Users\ivand\Source\Repos\MonoProject\Project.Repository.Tests\bin\Debug\xunit.core.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.Repository.Tests\bin\Debug\xunit.execution.desktop.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.Repository.Tests\bin\Debug\PagedList.dll
+C:\Users\ivand\Source\Repos\MonoProject\Project.Repository.Tests\bin\Debug\AutoMapper.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.Repository.Tests\bin\Debug\Project.DAL.pdb
 C:\Users\ivand\Source\Repos\MonoProject\Project.Repository.Tests\bin\Debug\Project.Model.Common.pdb
 C:\Users\ivand\Source\Repos\MonoProject\Project.Repository.Tests\bin\Debug\Project.Model.pdb
@@ -80,8 +81,7 @@ C:\Users\ivand\Source\Repos\MonoProject\Project.Repository.Tests\bin\Debug\xunit
 C:\Users\ivand\Source\Repos\MonoProject\Project.Repository.Tests\bin\Debug\xunit.core.xml
 C:\Users\ivand\Source\Repos\MonoProject\Project.Repository.Tests\bin\Debug\xunit.execution.desktop.xml
 C:\Users\ivand\Source\Repos\MonoProject\Project.Repository.Tests\bin\Debug\PagedList.xml
+C:\Users\ivand\Source\Repos\MonoProject\Project.Repository.Tests\bin\Debug\AutoMapper.xml
 C:\Users\ivand\Source\Repos\MonoProject\Project.Repository.Tests\obj\Debug\Project.Repository.Tests.csprojResolveAssemblyReference.cache
 C:\Users\ivand\Source\Repos\MonoProject\Project.Repository.Tests\obj\Debug\Project.Repository.Tests.dll
 C:\Users\ivand\Source\Repos\MonoProject\Project.Repository.Tests\obj\Debug\Project.Repository.Tests.pdb
-C:\Users\ivand\Source\Repos\MonoProject\Project.Repository.Tests\bin\Debug\AutoMapper.dll
-C:\Users\ivand\Source\Repos\MonoProject\Project.Repository.Tests\bin\Debug\AutoMapper.xml

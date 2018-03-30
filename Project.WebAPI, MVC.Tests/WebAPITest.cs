@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -10,6 +8,7 @@ using Moq;
 using MVC.Controllers;
 using PagedList;
 using Project.Model;
+using Project.Model.Common;
 using Project.Repository;
 using Project.Repository.Common;
 using Project.Service.Common;
@@ -32,18 +31,18 @@ namespace Project.WebAPI__MVC.Tests
         [Fact]
         public async Task GetPagedList_Success()
         {
-            List<VehicleModel> vehicleModelList = new List<VehicleModel>
+            List<IVehicleModel> vehicleModelList = new List<IVehicleModel>
             {
                new VehicleModel{ Id = 2, MakeId = 1, Name = "AA", Abrv = "2" },
                new VehicleModel {Id = 3, MakeId = 2, Name = "BB", Abrv = "x1" }
             };
 
             mockService.Setup(x => x.PagedList(filter))
-            .ReturnsAsync(new StaticPagedList<VehicleModel>(vehicleModelList, 1,
+            .ReturnsAsync(new StaticPagedList<IVehicleModel>(vehicleModelList, 1,
              2, 2));
             var controller = new VehicleModelAPIController(mockService.Object, filter);
             IHttpActionResult actionResult = await controller.Get(1, false, "", 2);
-            var contentResult = actionResult as OkNegotiatedContentResult<IPagedList<VehicleModel>>;
+            var contentResult = actionResult as OkNegotiatedContentResult<IPagedList<IVehicleModel>>;
             contentResult.Should().NotBeNull();
             contentResult.Content.TotalItemCount.Should().Be(2);
             contentResult.Content.PageNumber.Should().Be(1);
@@ -54,10 +53,10 @@ namespace Project.WebAPI__MVC.Tests
         [Fact]
         public async Task GetById_Success()
         {
-            mockService.Setup(x => x.GetById(2)).ReturnsAsync(model);
+            mockService.Setup(x => x.GetByIdAsync(2)).ReturnsAsync(model);
             var controller = new VehicleModelAPIController(mockService.Object, filter);
             IHttpActionResult actionResult = await controller.Get(2);
-            var contentResult = actionResult as OkNegotiatedContentResult<VehicleModel>;
+            var contentResult = actionResult as OkNegotiatedContentResult<IVehicleModel>;
             contentResult.Should().NotBeNull();
             contentResult.Content.Id.Should().Be(2);
             Assert.NotNull(contentResult.Content);

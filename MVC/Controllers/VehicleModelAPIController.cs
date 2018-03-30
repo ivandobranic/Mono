@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
-using AutoMapper;
-using MVC.Models;
-using Project.Common.Logging;
 using Project.Model;
-using Project.Repository;
 using Project.Repository.Common;
 using Project.Service.Common;
 
@@ -28,7 +21,7 @@ namespace MVC.Controllers
        
         [HttpGet]
         [Route("api/VehicleModelAPI")]
-        public async Task<IHttpActionResult> Get(int? pageNumber = null, bool? isAscending = null, string search = null, int? pageSize = null)
+        public async Task<IHttpActionResult> Get(int? pageNumber = null, bool isAscending = false, string search = null, int? pageSize = null)
         {
            
             try
@@ -36,7 +29,7 @@ namespace MVC.Controllers
 
                 filter.PageNumber = pageNumber ?? 1;
                 filter.Search = search;
-                filter.IsAscending = isAscending ?? false;
+                filter.IsAscending = isAscending;
 
 
                 var pagedList = await vehiclemodelService.PagedList(filter);
@@ -56,7 +49,7 @@ namespace MVC.Controllers
             try
             {
             
-                var vehicleModel = await vehiclemodelService.GetById(id);
+                var vehicleModel = await vehiclemodelService.GetByIdAsync(id);
                 if (vehicleModel == null)
                 {
                     return NotFound();
@@ -76,7 +69,7 @@ namespace MVC.Controllers
         {
             try
             {
-                await vehiclemodelService.Create(model);
+                await vehiclemodelService.CreateAsync(model);
                 return CreatedAtRoute("VehicleModelRoute", new { Id = model.Id }, model);
                 
 
@@ -102,7 +95,7 @@ namespace MVC.Controllers
                 }
                 else
                 {
-                    await vehiclemodelService.Update(model);
+                    await vehiclemodelService.UpdateAsync(model);
                     return Content(HttpStatusCode.Accepted, model);
                 }
 
@@ -121,7 +114,7 @@ namespace MVC.Controllers
             try
             {
                 
-              await vehiclemodelService.Delete(id);
+              await vehiclemodelService.DeleteAsync(id);
               return Ok();
                 
             }

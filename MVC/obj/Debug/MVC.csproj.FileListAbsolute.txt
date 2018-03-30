@@ -141,6 +141,8 @@ C:\Users\ivand\Source\Repos\MonoProject\MVC\bin\Ninject.WebApi.DependencyResolve
 C:\Users\ivand\Source\Repos\MonoProject\MVC\bin\PagedList.dll
 C:\Users\ivand\Source\Repos\MonoProject\MVC\bin\PagedList.Mvc.dll
 C:\Users\ivand\Source\Repos\MonoProject\MVC\bin\Project.Common.dll
+C:\Users\ivand\Source\Repos\MonoProject\MVC\bin\Project.DAL.dll
+C:\Users\ivand\Source\Repos\MonoProject\MVC\bin\Project.Model.Common.dll
 C:\Users\ivand\Source\Repos\MonoProject\MVC\bin\Project.Model.dll
 C:\Users\ivand\Source\Repos\MonoProject\MVC\bin\Project.Repository.Common.dll
 C:\Users\ivand\Source\Repos\MonoProject\MVC\bin\Project.Repository.dll
@@ -161,9 +163,9 @@ C:\Users\ivand\Source\Repos\MonoProject\MVC\bin\System.Web.WebPages.Razor.dll
 C:\Users\ivand\Source\Repos\MonoProject\MVC\bin\WebActivatorEx.dll
 C:\Users\ivand\Source\Repos\MonoProject\MVC\bin\WebApiContrib.IoC.Ninject.dll
 C:\Users\ivand\Source\Repos\MonoProject\MVC\bin\WebGrease.dll
-C:\Users\ivand\Source\Repos\MonoProject\MVC\bin\Project.Model.Common.dll
-C:\Users\ivand\Source\Repos\MonoProject\MVC\bin\Project.DAL.dll
 C:\Users\ivand\Source\Repos\MonoProject\MVC\bin\Project.Common.pdb
+C:\Users\ivand\Source\Repos\MonoProject\MVC\bin\Project.DAL.pdb
+C:\Users\ivand\Source\Repos\MonoProject\MVC\bin\Project.Model.Common.pdb
 C:\Users\ivand\Source\Repos\MonoProject\MVC\bin\Project.Model.pdb
 C:\Users\ivand\Source\Repos\MonoProject\MVC\bin\Project.Repository.Common.pdb
 C:\Users\ivand\Source\Repos\MonoProject\MVC\bin\Project.Repository.pdb
@@ -199,8 +201,6 @@ C:\Users\ivand\Source\Repos\MonoProject\MVC\bin\System.Web.WebPages.Deployment.x
 C:\Users\ivand\Source\Repos\MonoProject\MVC\bin\System.Web.WebPages.Razor.xml
 C:\Users\ivand\Source\Repos\MonoProject\MVC\bin\Antlr3.Runtime.pdb
 C:\Users\ivand\Source\Repos\MonoProject\MVC\bin\Newtonsoft.Json.xml
-C:\Users\ivand\Source\Repos\MonoProject\MVC\bin\Project.Model.Common.pdb
-C:\Users\ivand\Source\Repos\MonoProject\MVC\bin\Project.DAL.pdb
 C:\Users\ivand\Source\Repos\MonoProject\MVC\obj\Debug\MVC.csprojResolveAssemblyReference.cache
 C:\Users\ivand\Source\Repos\MonoProject\MVC\obj\Debug\MVC.dll
 C:\Users\ivand\Source\Repos\MonoProject\MVC\obj\Debug\MVC.pdb

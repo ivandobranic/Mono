@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
-using MVC.App_Start;
-using Ninject;
+﻿using System.Web.Http;
 
 namespace MVC
 {

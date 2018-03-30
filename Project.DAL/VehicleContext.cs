@@ -1,12 +1,7 @@
 ﻿namespace Project.DAL
 {
-    using System;
     using System.Data.Entity;
-    using System.Data.Entity.Core.Metadata.Edm;
-    using System.Data.Entity.Infrastructure;
-    using System.Globalization;
     using Entities;
-    using Model;
 
     public class VehicleContext : DbContext
     {

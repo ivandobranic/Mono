@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using PagedList;
 using Project.DAL.Entities;
 using AutoMapper;
-using Project.Model;
 using Project.Model.Common;
 using Project.Repository.Common;
 
@@ -49,7 +48,6 @@ namespace Project.Repository
         {
             var query = Repository.Get();
         
-            Mapper.AssertConfigurationIsValid();
             query = filter.IsAscending ==  false ? query.OrderByDescending(x => x.Name) : query.OrderBy(x => x.Name);
             if (!string.IsNullOrEmpty(filter.Search))
             {
